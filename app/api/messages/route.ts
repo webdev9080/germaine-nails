@@ -1,10 +1,10 @@
 
 // app/api/messages/route.ts
-import { NextResponse } from "next/server";
-import { sanity } from "@/lib/sanity/";
+import { NextResponse, NextRequest } from 'next/server'
+import { sanity } from "@/lib/sanity";
 
 
-export async function GET() {
+export async function GET(_req: NextRequest) {
   try {
     const query = `*[_type == "contactMessage"] | order(_createdAt desc){
   _id,

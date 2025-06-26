@@ -1,13 +1,7 @@
-import { NextRequest, NextResponse } from 'next/server'
+import { NextResponse, NextRequest } from 'next/server'
 import { sanity } from '@/lib/sanity'
 
-type Params = {
-  params: {
-    slug: string
-  }
-}
-
-export async function GET(_req: NextRequest, { params }: Params) {
+export async function GET(_req: NextRequest, { params }: any) {
   const { slug } = params
 
   try {

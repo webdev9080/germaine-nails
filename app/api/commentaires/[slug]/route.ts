@@ -1,26 +1,32 @@
-import { NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 import { sanity } from '@/lib/sanity'
 
 export async function GET(
-  _req: Request,
-  context: { params: { slug: string } }
-) {
-  // ✅ on extrait `slug` de `await context.params`
-  const { slug } = await context.params
+  _req: NextRequest, { params }: any) {
+  
+  const { slug } = params
 
   try {
     const query = `
-      *[_type == "commentaire" && article->slug.current == $slug] | order(date desc){
+      *[_type == "article" && slug.current == $slug][0] {
         _id,
         nom,
-        message,
-        date
+        slug,
+        description,
+        prix,
+        categorie,
+        disponible,
+        "imageUrl": image.asset->url
       }
     `
-    const commentaires = await sanity.fetch(query, { slug })
+    const article = await sanity.fetch(query, { slug })
 
-    return NextResponse.json(commentaires)
-  } catch (err) {
-    return NextResponse.json({ error: 'Erreur Sanity' }, { status: 500 })
+    if (!article) {
+      return NextResponse.json({ message: 'Not found' }, { status: 404 })
+    }
+
+    return NextResponse.json(article)
+  } catch {
+    return NextResponse.json({ message: 'Erreur serveur' }, { status: 500 })
   }
 }

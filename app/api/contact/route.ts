@@ -1,11 +1,11 @@
 // app/api/contact/route.ts
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest } from 'next/server'
 import { sanityWrite } from "@/lib/sanity";
 
 
-export async function POST(req: Request) {
+export async function POST(_req: NextRequest) {
   try {
-    const { name, email, message } = await req.json();
+    const { name, email, message } = await _req.json();
 
     if (!name || !email || !message) {
       return NextResponse.json({ error: "Champs requis manquants" }, { status: 400 });

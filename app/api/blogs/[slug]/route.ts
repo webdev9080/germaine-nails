@@ -1,13 +1,10 @@
-export const runtime = 'nodejs'
 
-import { NextResponse } from 'next/server'
+import { NextResponse, NextRequest } from 'next/server'
 import { sanity } from '@/lib/sanity'
 
 export async function GET(
-  _req: Request,
-  context: { params: { slug: string } }
-) {
-  const { slug } = await context.params // ✅ await obligatoire
+  _req: NextRequest, { params }: any) {
+  const { slug } = params 
 
   try {
     const post = await sanity.fetch(

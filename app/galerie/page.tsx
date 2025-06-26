@@ -28,8 +28,6 @@ type ImageDoc = {
 
 const categories = ["Tous", "Manucure", "Pédicure", "Soins Visage"];
 
-export const revalidate = 60 // ⏱️ Revalidation ISR
-
 export default function GaleriePage() {
   const [images, setImages] = useState<ImageDoc[]>([]);
   const [selectedCategory, setSelectedCategory] = useState("Tous");

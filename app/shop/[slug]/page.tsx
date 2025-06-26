@@ -1,4 +1,6 @@
 // app/shop/[slug]/page.tsx
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
 import { getArticleBySlug } from '@/lib/getArticleBySlug'
@@ -6,11 +8,7 @@ import { notFound } from 'next/navigation'
 
 export const revalidate = 60 // ISR toutes les 60s
 
-interface Props {
-  params: { slug: string }
-}
-
-export default async function ArticlePage({ params }: Props) {
+export default async function ArticlePage({ params }: any) {
   const article = await getArticleBySlug(params.slug)
 
   if (!article) return notFound()

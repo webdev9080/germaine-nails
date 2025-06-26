@@ -1,8 +1,8 @@
-import { NextResponse } from 'next/server'
+import { NextResponse, NextRequest } from 'next/server'
 import { sanityWrite } from '@/lib/sanity'
 
-export async function POST(req: Request) {
-  const { articleId, nom, message } = await req.json()
+export async function POST(_req: NextRequest) {
+  const { articleId, nom, message } = await _req.json()
 
   if (!articleId || !nom || !message) {
     return NextResponse.json({ error: 'Champs requis manquants' }, { status: 400 })

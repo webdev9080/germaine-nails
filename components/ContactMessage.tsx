@@ -61,7 +61,7 @@ export default function ContactMessages() {
               <h6 className="text-center card-subtitle text-muted">{msg.email}</h6>
               <p className="py-1 card-text mt-2 text-center">{msg.message}</p>
               <p className="text-end text-muted small">
-                {new Date(msg._createdAt).toLocaleString()}
+                {new Date(msg.createdAt).toLocaleString()}
               </p>
               <div className="text-end">
                 <button
@@ -121,7 +121,7 @@ export default function ContactMessages() {
               <h6 className="card-subtitle text-muted">{msg.email}</h6>
               <p className="card-text mt-2 text-center">{msg.message}</p>
               <p className="text-end text-muted small">
-                {new Date(msg._createdAt).toLocaleString()}
+                {new Date(msg.createdAt).toLocaleString()}
               </p>
             </div>
           </div>
