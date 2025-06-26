@@ -8,7 +8,7 @@ export default function Footer() {
         <h5 className="mb-3">Suivez-nous</h5>
         <div className="d-flex justify-content-center gap-4 mb-3">
           <a
-            href="https://wa.me/22890805252"
+            href="https://wa.me/22870306224"
             target="_blank"
             rel="noopener noreferrer"
             className=" fs-4"

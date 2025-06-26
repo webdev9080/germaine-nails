@@ -26,7 +26,7 @@ export default function ShopClient({ articles }: { articles: Article[] }) {
     localStorage.setItem('readShopIds', JSON.stringify(ids))
   }, [articles])
 
-  const whatsappNumber = '22890123456' // remplace par ton numéro
+  const whatsappNumber = '22870306224' // remplace par ton numéro
 
   const handleWhatsAppClick = (nom: string) => {
     toast.success(`Redirection vers WhatsApp pour "${nom}"…`)
