@@ -1,7 +1,13 @@
+import { NextRequest, NextResponse } from 'next/server'
 import { sanity } from '@/lib/sanity'
-import { NextResponse } from 'next/server'
 
-export async function GET(req: Request, { params }: { params: { slug: string } }) {
+type Params = {
+  params: {
+    slug: string
+  }
+}
+
+export async function GET(_req: NextRequest, { params }: Params) {
   const { slug } = params
 
   try {
@@ -19,10 +25,12 @@ export async function GET(req: Request, { params }: { params: { slug: string } }
     `
     const article = await sanity.fetch(query, { slug })
 
-    if (!article) return NextResponse.json({ message: 'Not found' }, { status: 404 })
+    if (!article) {
+      return NextResponse.json({ message: 'Not found' }, { status: 404 })
+    }
 
     return NextResponse.json(article)
-  } catch (error) {
+  } catch {
     return NextResponse.json({ message: 'Erreur serveur' }, { status: 500 })
   }
 }
