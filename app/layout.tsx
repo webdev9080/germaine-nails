@@ -1,9 +1,9 @@
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
 
 import type { Metadata } from "next";
-//import { type Metadata } from 'next'
 import { Toaster } from "react-hot-toast";
 
 import {
@@ -42,6 +42,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Navbar />
                 <main className="flex-grow-1">
                     {children}
+                    <SpeedInsights />
                 </main>
             <Footer />
             <BottomNavbar />
