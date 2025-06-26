@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
+import { FaWhatsapp } from 'react-icons/fa'
+import toast from 'react-hot-toast'
 
 interface Article {
   _id: string
@@ -24,6 +25,12 @@ export default function ShopClient({ articles }: { articles: Article[] }) {
     const ids = articles.map((a) => a._id)
     localStorage.setItem('readShopIds', JSON.stringify(ids))
   }, [articles])
+
+  const whatsappNumber = '22890123456' // remplace par ton numéro
+
+  const handleWhatsAppClick = (nom: string) => {
+    toast.success(`Redirection vers WhatsApp pour "${nom}"…`)
+  }
 
   return (
     <>
@@ -49,37 +56,48 @@ export default function ShopClient({ articles }: { articles: Article[] }) {
       {/* 🛍️ Articles */}
       <div className="row">
         {filtered.length > 0 ? (
-          filtered.map((a) => (
-            <div className="col-md-4 mb-4" key={a._id}>
-              <div className="card h-100 shadow-sm">
-                {a.imageUrl && (
-                  <Image
-                    src={a.imageUrl}
-                    alt={a.nom}
-                    width={400}
-                    height={300}
-                    className="card-img-top object-fit-cover"
-                    loading="lazy"
-                  />
-                )}
-                <div className="card-body d-flex flex-column">
-                  <h5 className="card-title d-flex p-2 justify-content-between align-items-center">
-                    <span className="text-dark">{a.nom}</span>
-                    <Link
-                      href={`/shop/${a.slug}`}
-                      className="btn btn-info rounded-3 text-white"
-                    >
-                      Consulter
-                    </Link>
-                  </h5>
-                  <p className="card-text text-center">{a.description}</p>
-                  <div className="mt-auto fw-bold text-primary">
-                    {a.prix.toLocaleString()} FCFA
+          filtered.map((a) => {
+            const message = encodeURIComponent(
+              `Bonjour, je suis intéressé(e) par l'article "${a.nom}" au prix de ${a.prix.toLocaleString()} FCFA. Est-il toujours disponible ?`
+            )
+            const whatsappLink = `https://wa.me/${whatsappNumber}?text=${message}`
+
+            return (
+              <div className="col-md-4 mb-4" key={a._id}>
+                <div className="card h-100 shadow-sm">
+                  {a.imageUrl && (
+                    <Image
+                      src={a.imageUrl}
+                      alt={a.nom}
+                      width={400}
+                      height={300}
+                      className="card-img-top object-fit-cover"
+                      loading="lazy"
+                    />
+                  )}
+                  <div className="card-body d-flex flex-column">
+                    <h5 className="card-title text-dark">{a.nom}</h5>
+                    <p className="card-text text-center">{a.description}</p>
+                    <div className="mt-auto d-flex flex-column gap-2">
+                      <div className="fw-bold text-primary text-center">
+                        {a.prix.toLocaleString()} FCFA
+                      </div>
+                      <a
+                        href={whatsappLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn btn-success text-white d-flex align-items-center justify-content-center gap-2"
+                        onClick={() => handleWhatsAppClick(a.nom)}
+                      >
+                        <FaWhatsapp size={18} />
+                        Achat via WhatsApp
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))
+            )
+          })
         ) : (
           <p className="text-muted text-center">Aucun article trouvé dans cette catégorie.</p>
         )}

@@ -147,9 +147,9 @@ export default function GaleriePage() {
           Voir toutes les prestations
         </Link>
         
-        <Link href="/dashboard" className="btn btn-outline-pink">
+        {/*<Link href="/dashboard" className="btn btn-outline-pink">
           Tableau de bord
-        </Link>
+        </Link>*/}
         
       </section>
     </main>

@@ -132,6 +132,7 @@ export default function ArticleClient({
       articleId={post._id}
       onCommentPosted={async () => {
         const res = await fetch(`/api/commentaires/${slug}`)
+        
         const data = await res.json()
         setCommentaires(data)
       }}

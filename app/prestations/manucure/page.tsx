@@ -103,10 +103,10 @@ const [commentaires, setCommentaires] = useState<Commentaire[]>([])
         
       </section>
       
-      <section className="container">
+      {/*<section className="container">
            {loading ? <Spinner variant="primary" size="sm" text="Chargement en cours..." /> : <CommentairesList commentaires={commentaires} />}
            
-      </section>
+      </section>*/}
       
           
     </main>
