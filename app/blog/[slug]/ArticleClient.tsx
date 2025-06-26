@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { PortableText } from '@portabletext/react'
 import Spinner from '@/components/Spinner'
-import CommentairesList from '@/components/CommentairesList'
 import CommentForm from '@/components/CommentForm'
 
 
@@ -140,8 +139,6 @@ export default function ArticleClient({
   </div>
 </div>
 
-          {/* Liste des commentaires */}
-          {!loading && <CommentairesList commentaires={commentaires} />}
           
           
         </div>
