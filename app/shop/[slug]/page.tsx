@@ -6,8 +6,6 @@ import Link from 'next/link'
 import { getArticleBySlug } from '@/lib/getArticleBySlug'
 import { notFound } from 'next/navigation'
 
-export const revalidate = 60 // ISR toutes les 60s
-
 export default async function ArticlePage({ params }: any) {
   const article = await getArticleBySlug(params.slug)
 

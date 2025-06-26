@@ -2,8 +2,6 @@
 import { getArticles } from '@/lib/getArticles'
 import ShopClient from './ShopClient'
 
-export const revalidate = 60 // ⏱️ Revalidation ISR
-
 export default async function ShopPage() {
   const articles = await getArticles()
   return (
