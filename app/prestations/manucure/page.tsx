@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import Link from "next/link";
 
 import SanityCarousel from '@/components/SanityCarousel'
-import CommentairesList from '@/components/CommentairesList'
+
 import Spinner from '@/components/Spinner'
 
 
@@ -102,12 +102,6 @@ const [commentaires, setCommentaires] = useState<Commentaire[]>([])
         </Link>*/}
         
       </section>
-      
-      {/*<section className="container">
-           {loading ? <Spinner variant="primary" size="sm" text="Chargement en cours..." /> : <CommentairesList commentaires={commentaires} />}
-           
-      </section>*/}
-      
           
     </main>
   );

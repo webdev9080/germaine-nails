@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
 import SanityCarousel from '@/components/SanityCarousel'
-import CommentairesList from '@/components/CommentairesList'
+
 import Spinner from '@/components/Spinner'
 
 
@@ -58,12 +58,6 @@ export default function PedicurePage() {
         </Link>
       </div>
       
-      {/*<section className="mt-4 justify-content-center container">
-          
-          <h2 className="mb-3 text-center text-pink">Avis clients/(es)</h2>
-           {loading ? <Spinner variant="primary" size="sm" text="Chargement commentaires en cours..." /> : <CommentairesList commentaires={commentaires} />}
-           
-      </section>*/}
       
     </main>
   )
