@@ -64,7 +64,7 @@ export default function CarrouselPrestations() {
 
                 return (
                   <SwiperSlide key={i}>
-                    <Image
+                    <Link href={"/galerie"}><Image
                       src={imageUrl}
                       alt={img ? `${item.titre} ${i + 1}` : 'Image non disponible'}
                       width={300}
@@ -73,14 +73,14 @@ export default function CarrouselPrestations() {
                       placeholder="blur"
                       blurDataURL="/images/manucure.jpg"
                       className="slide-image"
-                    />
+                    /></Link>
                   </SwiperSlide>
                 );
               })}
             </Swiper>
 
             <h3 className="title">{item.titre}</h3>
-            <Link href="/galerie">
+            <Link href="/prestations">
               <button className="voir-plus">Voir plus</button>
             </Link>
           </div>

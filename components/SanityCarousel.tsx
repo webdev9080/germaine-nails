@@ -37,35 +37,37 @@ export default function SanityCarousel({ type }: SanityCarouselProps) {
     fetchData()
   }, [type])
 
-  if (!items.length) return <div className="bg-dark-subtle d-flex justify-content-center p-2"><SkeletonCard /></div>
+  if (!items.length) return <div className="bg-light d-flex justify-content-center p-2"><SkeletonCard /></div>
     
 
   return (
-    <Swiper
-      modules={[Autoplay, Pagination]}
-      spaceBetween={20}
-      slidesPerView={1}
-      autoplay={{ delay: 3000 }}
-      pagination={{ clickable: true }}
-    >
-      {items.map((item, index) => (
-        <SwiperSlide key={item._id}>
-          <div className="card">
-            <Image
-              width={400}
-              height={600}
-              src={item.image.asset.url}
-              className="card-img-top"
-              alt={item.title}
-              style={{ maxHeight: 300, objectFit: 'cover' }}
-            />
-            <div className="card-body d-flex justify-content-center ">
-              <h5 className="card-title px-3">{item.title}</h5>
-              <p className="card-text">{item.description}</p>
-            </div>
+    <div style={{ maxWidth: 400, height: 350, margin: '0 auto' }}>
+  <Swiper
+    modules={[Autoplay, Pagination]}
+    spaceBetween={20}
+    slidesPerView={1}
+    autoplay={{ delay: 3000 }}
+    pagination={{ clickable: true }}
+  >
+    {items.map((item) => (
+      <SwiperSlide key={item._id}>
+        <div className="card">
+          <Image
+            width={400}
+            height={300}
+            src={item.image.asset.url}
+            className="card-img-top"
+            alt={item.title}
+            style={{ height: 200, objectFit: 'cover' }}
+          />
+          <div className="card-body text-center">
+            <h5 className="card-title">{item.title}</h5>
+            <p className="card-text">{item.description}</p>
           </div>
-        </SwiperSlide>
-      ))}
-    </Swiper>
+        </div>
+      </SwiperSlide>
+    ))}
+  </Swiper>
+</div>
   )
 }

@@ -13,7 +13,7 @@ export default function Home() {
     <main className="bg-white text-dark">
 
       {/* Hero Section */}
-      <section className="hero-section position-relative text-white d-flex align-items-center justify-content-center py-5" style={{ minHeight: "80vh", background: "url('/images/hero.jpg') center/cover no-repeat" }}>
+      <section className="hero-section position-relative text-white d-flex align-items-center justify-content-center py-3" style={{ minHeight: "50vh", background: "url('/images/hero.jpg') center/cover no-repeat" }}>
         <div className="overlay position-absolute w-100 h-100 bg-dark opacity-50"></div>
         <div className="container position-relative text-center animate-fade-in">
           <h1 className="display-4 fw-bold mb-3">
@@ -29,7 +29,7 @@ export default function Home() {
       </section>
 
       {/* Prestations Section */}
-      <section className="bg-light py-5">
+      <section className="bg-light py-3">
         <div className="container text-center mb-4">
           <h2 className="display-5 fw-semibold">Nos prestations</h2>
           <p className="text-muted">Un aperçu de notre savoir-faire</p>

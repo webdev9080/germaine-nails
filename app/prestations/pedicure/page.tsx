@@ -1,57 +1,71 @@
-"use client"
+'use client'
 
-import Link from 'next/link'
-import SanityCarousel from '@/components/SanityCarousel'
+import Link from 'next/link' 
 
-export default function PedicurePage() {
-  return (
-    <main className="container py-5">
-      <section className="text-center mb-5">
-        <h1 className="display-5 fw-bold text-pink">Pédicure</h1>
-        <p className="lead text-muted">
-          Chouchoutez vos pieds avec nos soins relaxants et esthétiques.
-        </p>
-      </section>
+import SanityCarousel from '@/components/SanityCarousel' 
+import TemoignagesSection from '@/components/TemoignagesSection' 
+import FaqSection from '@/components/FaqSection'
 
-      <section className="mb-5">
-        <SanityCarousel type="pedicure" />
-      </section>
+export default function PedicurePage() { return ( <main className="bg-white text-dark mt-2">
 
-      <div className="text-center mb-5">
-        <Link href="/contact" className="btn btn-pink text-white px-4 py-2 fs-5 rounded-pill shadow">
-          Prendre rendez-vous
-        </Link>
+{/* Bannière */}
+  <section className="bg-light py-2 text-center">
+    <div className="container">
+      <h1 className="display-4 fw-bold text-pink">Pédicure</h1>
+      <p className="lead text-muted">
+        Offrez à vos pieds un moment de détente et de beauté avec nos soins spécialisés et apaisants.
+      </p>
+    </div>
+  </section>
+
+  {/* Carrousel Sanity */}
+  <div className="bg-light">
+    <SanityCarousel type="pedicure" />
+  </div>
+
+  {/* Prestations */}
+  <section className="bg-light">
+    <div className="container">
+      <div className="row g-2">
+        {cards.map((card, i) => (
+          <div className="col-md-4" key={i}>
+            <div className="card h-100 border-0 shadow-sm rounded-4 hover-shadow transition-all">
+              <div className="card-body text-center">
+                <h5 className="card-title text-pink fw-semibold mb-3">{card.title}</h5>
+                <p className="card-text text-muted">{card.description}</p>
+                <ul className="list-unstyled mt-3">
+                  <li><strong>Durée :</strong> {card.duration}</li>
+                  <li><strong>Prix :</strong> {card.price}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
+    </div>
+  </section>
 
-      <section className="mt-5">
-        <h2 className="text-center text-pink mb-4">Pourquoi choisir nos soins pédicure ?</h2>
-        <div className="row g-4">
-          <div className="col-md-4">
-            <div className="p-4 border rounded shadow-sm h-100 text-center">
-              <h5 className="text-pink">Hygiène irréprochable</h5>
-              <p className="text-muted">
-                Nous utilisons des outils stérilisés et respectons les normes les plus strictes.
-              </p>
-            </div>
-          </div>
-          <div className="col-md-4">
-            <div className="p-4 border rounded shadow-sm h-100 text-center">
-              <h5 className="text-pink">Confort & bien-être</h5>
-              <p className="text-muted">
-                Chaque soin est un moment de détente pour sublimer vos pieds tout en vous relaxant.
-              </p>
-            </div>
-          </div>
-          <div className="col-md-4">
-            <div className="p-4 border rounded shadow-sm h-100 text-center">
-              <h5 className="text-pink">Produits de qualité</h5>
-              <p className="text-muted">
-                Nous utilisons uniquement des produits professionnels pour des résultats durables.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-  )
-}
+  {/* Témoignages dynamiques depuis Sanity */}
+  <TemoignagesSection categorie="pedicure" />
+
+  {/* FAQ dynamique depuis Sanity */}
+  <FaqSection categorie="pedicure" />
+
+  {/* CTA */}
+  <section className="bg-pink text-white text-center py-5 mt-5" style={{ maxWidth: 1000, height: 250, margin: '0 auto' }}>
+    <div className="container">
+      <h2 className="mb-4 display-6">Prenez soin de vos pieds dès aujourd'hui</h2>
+      <Link
+        href="/contact"
+        className="btn btn-light text-pink fw-bold px-4 py-2 rounded-pill shadow-sm"
+      >
+        Prendre rendez-vous
+      </Link>
+    </div>
+  </section>
+</main>
+
+) }
+
+ const cards = [ { title: 'Pédicure Classique', description: 'Nettoyage, coupe, limage et hydratation des pieds.', duration: '40 min', price: '5 000 FCFA', }, { title: 'Soin Spa', description: 'Bain de pieds, gommage, massage relaxant et masque hydratant.', duration: '60 min', price: '9 000 FCFA', }, { title: 'Beauté des Ongles', description: 'Pose de vernis classique ou semi-permanent sur les pieds.', duration: '30 à 45 min', price: 'à partir de 6 000 FCFA', }, ]
+
