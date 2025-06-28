@@ -1,4 +1,5 @@
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from "@vercel/analytics/next"
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -43,6 +44,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <main className="flex-grow-1">
                     {children}
                     <SpeedInsights />
+                    <Analytics />
                 </main>
             <Footer />
             <BottomNavbar />
