@@ -1,27 +1,18 @@
-'use client'
-
-import { useEffect, useState } from 'react'
+// components/FaqSection.tsx
 import { getFaqByCategorie } from '@/lib/sanityQueries'
 
-interface FaqItem {
-  _id: string
-  question: string
-  reponse: string
-}
+type Props = { categorie: string }
 
-export default function FaqSection({ categorie }: { categorie: string }) {
-  const [faq, setFaq] = useState<FaqItem[]>([])
+export default async function FaqSection({ categorie }: Props) {
+  const faq = await getFaqByCategorie(categorie)
 
-  useEffect(() => {
-    getFaqByCategorie(categorie).then(setFaq)
-  }, [categorie])
-
-  if (!faq.length) return null
+  if (!faq?.length) return null
 
   return (
     <section className="py-3">
       <div className="container">
         <h2 className="text-center mb-4 text-pink">Questions fréquentes</h2>
+
         <div className="accordion" id={`faqAccordion-${categorie}`}>
           {faq.map((item, i) => (
             <div className="accordion-item" key={item._id}>
@@ -37,6 +28,7 @@ export default function FaqSection({ categorie }: { categorie: string }) {
                   {item.question}
                 </button>
               </h2>
+
               <div
                 id={`collapse-${categorie}-${i}`}
                 className={`accordion-collapse collapse ${i === 0 ? 'show' : ''}`}

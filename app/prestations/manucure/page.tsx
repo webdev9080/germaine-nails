@@ -1,4 +1,4 @@
-'use client'
+
 
 import Link from 'next/link' 
 
@@ -54,7 +54,7 @@ export default function ManucurePage() { return ( <main className="bg-white text
   <FaqSection categorie="manucure" />
 
   {/* CTA */}
-  <section className="bg-pink text-white text-center py-5 mt-5" style={{ maxWidth: 400, height: 350, margin: '0 auto' }}>
+  <section className="bg-pink text-white text-center py-5 mt-5" style={{ maxWidth: 1000, height: 250, margin: '0 auto' }}>
     <div className="container">
       <h2 className="mb-4 display-6">Réservez votre séance de manucure dès aujourd'hui</h2>
       <Link

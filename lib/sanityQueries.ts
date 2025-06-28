@@ -1,24 +1,26 @@
 import { groq } from 'next-sanity'
-import { sanity } from './sanity' // ← ça utilise ton client déjà configuré
+import { sanity } from './sanity'
 
+// Témoignages par catégorie (insensible à la casse)
 export async function getTemoignagesByCategorie(categorie: string) {
   return sanity.fetch(
-    groq`*[_type == "temoignage" && categorie == $categorie]{
+    groq`*[_type == "temoignage" && lower(categorie) == lower($categorie)]{
       _id,
       auteur,
       contenu
     }`,
-    { categorie }
+    { categorie: categorie.trim().toLowerCase() }
   )
 }
 
+// FAQ par catégorie (insensible à la casse)
 export async function getFaqByCategorie(categorie: string) {
   return sanity.fetch(
-    groq`*[_type == "faq" && categorie == $categorie]{
+    groq`*[_type == "faq" && lower(categorie) == lower($categorie)]{
       _id,
       question,
       reponse
     }`,
-    { categorie }
+    { categorie: categorie.trim().toLowerCase() }
   )
 }
