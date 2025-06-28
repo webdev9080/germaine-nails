@@ -26,7 +26,7 @@ export default function ShopClient({ articles }: { articles: Article[] }) {
     localStorage.setItem('readShopIds', JSON.stringify(articles.map((a) => a._id)))
   }, [articles])
 
-  const whatsappNumber = '22870306224' // remplace par ton numéro
+  const whatsappNumber = '70306224' // remplace par ton numéro
   const formatPrice = (p: number) =>
     new Intl.NumberFormat('fr-FR', { maximumFractionDigits: 0 }).format(p)
 

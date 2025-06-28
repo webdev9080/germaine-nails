@@ -9,7 +9,10 @@ export async function getTemoignagesByCategorie(categorie: string) {
       auteur,
       contenu
     }`,
-    { categorie: categorie.trim().toLowerCase() }
+    { categorie: categorie.trim().toLowerCase() },
+    {
+      next: { revalidate: 60 } // ⏱ ISR : revalidation toutes les 60 secondes
+    }
   )
 }
 
@@ -21,6 +24,9 @@ export async function getFaqByCategorie(categorie: string) {
       question,
       reponse
     }`,
-    { categorie: categorie.trim().toLowerCase() }
+    { categorie: categorie.trim().toLowerCase() },
+    {
+      next: { revalidate: 60 } // Ajout aussi ici pour la FAQ si besoin
+    }
   )
 }

@@ -17,7 +17,7 @@ export default function ContactDetails() {
             <p className="mb-3">
               <FaPhone className="me-2 text-success" />
               <a href="tel:+22890805252" className="text-decoration-none text-dark">
-                +228 90805252
+                +228 70306224
               </a>
             </p>
             <p className="mb-3">
