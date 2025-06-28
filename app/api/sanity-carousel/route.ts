@@ -1,13 +1,13 @@
-// /app/api/sanity-carousel/route.ts
-
-import { NextResponse, NextRequest } from 'next/server'
+// app/api/sanity-carousel/route.ts
+import { NextRequest } from 'next/server'
 import { sanity } from '@/lib/sanity'
+import { withRevalidation } from '@/lib/apiResponse'
 
 export async function GET(_req: NextRequest) {
   const { searchParams } = new URL(_req.url)
   const type = searchParams.get('type') || 'pedicure'
 
-  const data = await sanity.fetch(`*[_type == "${type}"]{
+  const query = `*[_type == "${type}"]{
     _id,
     title,
     description,
@@ -16,7 +16,9 @@ export async function GET(_req: NextRequest) {
         url
       }
     }
-  }`)
+  }`
 
-  return NextResponse.json(data)
+  const data = await sanity.fetch(query)
+
+  return withRevalidation(data) // ✅ données dynamiques + cache maîtrisé
 }

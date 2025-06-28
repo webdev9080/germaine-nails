@@ -1,9 +1,7 @@
-
-
-
-// pages/api/prestations.ts
-import { NextResponse, NextRequest } from 'next/server'
+// app/api/prestations/route.ts
+import { NextRequest } from 'next/server'
 import { sanity } from '@/lib/sanity'
+import { withRevalidation } from '@/lib/apiResponse'
 
 export async function GET(_req: NextRequest) {
   const prestations = await sanity.fetch(`
@@ -13,5 +11,5 @@ export async function GET(_req: NextRequest) {
     }
   `)
 
-  return NextResponse.json(prestations)
+  return withRevalidation(prestations) // ✅ simple, lisible et maintenu
 }
