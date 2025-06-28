@@ -1,12 +1,16 @@
-// components/TemoignagesSection.tsx   ← plus de "use client"
-
+// components/TemoignagesSection.tsx
 import { getTemoignagesByCategorie } from '@/lib/sanityQueries'
 
 type Props = { categorie: string }
 
+interface Temoignage {
+  _id: string
+  auteur: string
+  contenu: string
+}
+
 export default async function TemoignagesSection({ categorie }: Props) {
-  // Appel Sanity exécuté côté serveur
-  const temoignages = await getTemoignagesByCategorie(categorie)
+  const temoignages: Temoignage[] = await getTemoignagesByCategorie(categorie)
 
   if (!temoignages?.length) return null
 
@@ -15,7 +19,7 @@ export default async function TemoignagesSection({ categorie }: Props) {
       <div className="container">
         <h2 className="text-center mb-4 text-pink">Avis de nos clientes</h2>
         <div className="row g-2 justify-content-center">
-          {temoignages.map((t) => (
+          {temoignages.map((t: Temoignage) => (
             <div className="col-md-6" key={t._id}>
               <div className="card shadow-sm p-2 rounded-4">
                 <p className="mb-2 text-center">&quot;{t.contenu}&quot;</p>

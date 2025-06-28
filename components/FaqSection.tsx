@@ -1,10 +1,18 @@
-// components/FaqSection.tsx
+// components/FaqSection.tsx  
 import { getFaqByCategorie } from '@/lib/sanityQueries'
 
-type Props = { categorie: string }
+type Props = {
+  categorie: string
+}
+
+interface FaqItem {
+  _id: string
+  question: string
+  reponse: string
+}
 
 export default async function FaqSection({ categorie }: Props) {
-  const faq = await getFaqByCategorie(categorie)
+  const faq: FaqItem[] = await getFaqByCategorie(categorie)
 
   if (!faq?.length) return null
 
@@ -14,7 +22,7 @@ export default async function FaqSection({ categorie }: Props) {
         <h2 className="text-center mb-4 text-pink">Questions fréquentes</h2>
 
         <div className="accordion" id={`faqAccordion-${categorie}`}>
-          {faq.map((item, i) => (
+          {faq.map((item: FaqItem, i: number) => (
             <div className="accordion-item" key={item._id}>
               <h2 className="accordion-header" id={`heading-${categorie}-${i}`}>
                 <button
