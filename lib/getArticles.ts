@@ -10,5 +10,8 @@ export async function getArticles() {
     categorie,
     "imageUrl": image.asset->url
   }`
-  return await sanity.fetch(query, {}, { cache: 'no-store' }) // désactive le cache temporairement
+
+  return await sanity.fetch(query, {}, {
+    next: { revalidate: 60 } // ⏱ ISR : revalidation toutes les 60s
+  })
 }

@@ -13,5 +13,8 @@ export async function getBlogs() {
       "url": imagePrincipale.asset->url
     }
   }`
-  return await sanity.fetch(query)
+
+  return await sanity.fetch(query, {}, {
+    next: { revalidate: 60 } // ⏱ Revalidation toutes les 60 secondes
+  })
 }
