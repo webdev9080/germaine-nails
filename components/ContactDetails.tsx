@@ -16,7 +16,7 @@ export default function ContactDetails() {
             </p>
             <p className="mb-3">
               <FaPhone className="me-2 text-success" />
-              <a href="tel:+22890805252" className="text-decoration-none text-dark">
+              <a href="tel:+22870306224" className="text-decoration-none text-dark">
                 +228 70306224
               </a>
             </p>
@@ -28,7 +28,7 @@ export default function ContactDetails() {
             </p>
 
             <Link
-              href="https://wa.me/22890805252"
+              href="https://wa.me/22870306224"
               target="_blank"
               className="btn btn-success btn-lg rounded-pill d-inline-flex align-items-center justify-content-center mt-3"
             >
