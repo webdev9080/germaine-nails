@@ -1,12 +1,10 @@
+
 import { NextResponse, NextRequest } from 'next/server'
 import { sanity } from '@/lib/sanity'
-import { withRevalidation } from '@/lib/apiResponse'
 
 export async function GET(
-  _req: NextRequest, 
-  { params }: any
-) {
-  const { slug } = params
+  _req: NextRequest, { params }: any) {
+  const { slug } = params 
 
   try {
     const post = await sanity.fetch(
@@ -21,12 +19,11 @@ export async function GET(
       { slug }
     )
 
-    if (!post) {  
-      return NextResponse.json({ error: 'Not found' }, { status: 404 })  
+    if (!post) {
+      return NextResponse.json({ error: 'Not found' }, { status: 404 })
     }
 
-    return withRevalidation(post) // ✅ Ajout de la revalidation ISR
-
+    return NextResponse.json(post)
   } catch (err) {
     return NextResponse.json({ error: 'Erreur serveur' }, { status: 500 })
   }

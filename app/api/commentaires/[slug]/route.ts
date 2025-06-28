@@ -1,9 +1,9 @@
-// app/api/article/[slug]/route.ts
 import { NextRequest, NextResponse } from 'next/server'
 import { sanity } from '@/lib/sanity'
-import { withRevalidation } from '@/lib/apiResponse'
 
-export async function GET(_req: NextRequest, { params }: any) {
+export async function GET(
+  _req: NextRequest, { params }: any) {
+  
   const { slug } = params
 
   try {
@@ -25,7 +25,7 @@ export async function GET(_req: NextRequest, { params }: any) {
       return NextResponse.json({ message: 'Not found' }, { status: 404 })
     }
 
-    return withRevalidation(article) // ✅ revalidation toutes les 60s
+    return NextResponse.json(article)
   } catch {
     return NextResponse.json({ message: 'Erreur serveur' }, { status: 500 })
   }
