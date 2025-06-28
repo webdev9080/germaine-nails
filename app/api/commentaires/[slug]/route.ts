@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { sanity } from '@/lib/sanity'
 import { withRevalidation } from '@/lib/apiResponse'
 
-export async function GET(_req: NextRequest, { params }: { params: { slug: string } }) {
+export async function GET(_req: NextRequest, { params }: any) {
   const { slug } = params
 
   try {
