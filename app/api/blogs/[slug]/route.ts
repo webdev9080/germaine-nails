@@ -1,10 +1,13 @@
-
-import { NextResponse, NextRequest } from 'next/server'
+// app/api/blog/[slug]/route.ts
+import { NextRequest, NextResponse } from 'next/server'
 import { sanity } from '@/lib/sanity'
+import { withRevalidation } from '@/lib/apiResponse'
 
 export async function GET(
-  _req: NextRequest, { params }: any) {
-  const { slug } = params 
+  _req: NextRequest,
+  { params }: { params: { slug: string } }
+) {
+  const { slug } = params
 
   try {
     const post = await sanity.fetch(
@@ -13,7 +16,7 @@ export async function GET(
         titre,
         date,
         auteur,
-        imagePrincipale{asset->{url}},
+        imagePrincipale { asset->{url} },
         contenu
       }`,
       { slug }
@@ -23,7 +26,7 @@ export async function GET(
       return NextResponse.json({ error: 'Not found' }, { status: 404 })
     }
 
-    return NextResponse.json(post)
+    return withRevalidation(post) // ✅ ISR: 60s
   } catch (err) {
     return NextResponse.json({ error: 'Erreur serveur' }, { status: 500 })
   }
