@@ -1,8 +1,7 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
+import { useState } from "react"
 import { Modal, Button, OverlayTrigger, Tooltip } from "react-bootstrap"
-import { FaInfoCircle } from "react-icons/fa"
 import { BsInfoCircle } from "react-icons/bs"
 
 interface SectionInfoProps {
@@ -12,14 +11,6 @@ interface SectionInfoProps {
 
 export default function SectionInfo({ message, color = "info" }: SectionInfoProps) {
   const [show, setShow] = useState(false)
-  const iconRef = useRef(null)
-
-  useEffect(() => {
-    // Bootstrap Tooltip init (si jamais utilisé en dehors de OverlayTrigger)
-    if (typeof window !== "undefined" && window.bootstrap) {
-      new window.bootstrap.Tooltip(iconRef.current)
-    }
-  }, [])
 
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
