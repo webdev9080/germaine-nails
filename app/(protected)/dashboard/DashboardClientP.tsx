@@ -16,7 +16,6 @@ export default function DashboardClient() {
       if (!user) {
         router.push('/sign-in?redirect_url=/dashboard');
       } else if (user?.publicMetadata?.role !== 'admin') {
-      toast.error("Accès réservé uniquement aux administrateurs")
         router.push('/');
       }
     }
