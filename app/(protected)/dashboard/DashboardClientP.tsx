@@ -7,8 +7,6 @@ import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import ContactMessage from '@/components/ContactMessage';
 
-import { Toast } from "react-hot-toast";
-
 export default function DashboardClient() {
   const { user, isLoaded } = useUser();
   const router = useRouter();
