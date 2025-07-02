@@ -43,8 +43,7 @@ export async function POST(req: NextRequest) {
          }`),
         
       sanity.fetch(`*[_type == "formation"]{ nom,
-      formation,
-      paiement
+      formation
       }`),
       
       sanity.fetch(`*[_type == "blog"]{titre,
