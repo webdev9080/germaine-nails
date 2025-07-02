@@ -272,3 +272,22 @@ a {
     background-color: #f3f3f3;
   }
 }
+
+
+/*Partie Chatbot IA*/
+@keyframes messengerPulse {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 0 0 0 rgba(216, 27, 96, 0.7);
+  }
+  50% {
+    transform: translateY(-6px) scale(1.1);
+    box-shadow: 0 0 10px 6px rgba(216, 27, 96, 0.4);
+  }
+}
+
+.messenger-icon-animated {
+  animation: messengerPulse 2.5s ease-in-out infinite;
+  /* Optionnel : ajouter une transition douce quand on clique */
+  transition: transform 0.2s ease;
+}
