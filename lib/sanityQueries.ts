@@ -30,3 +30,20 @@ export async function getFaqByCategorie(categorie: string) {
     }
   )
 }
+
+// Récupération des partenaires Actuels (Page Partenariat )
+
+export async function getPartenairesActuels() {
+  return await sanity.fetch(
+    `*[_type == "partenaire" && estApprouve == true && defined(logo.asset)]{
+      _id,
+      "nom": entreprise,
+      siteWeb,
+      "logo": logo.asset->url
+    } | order(_createdAt desc)`,
+    {},
+    {
+      next: { revalidate: 60 }
+    }
+  )
+}

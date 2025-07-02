@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { FaGraduationCap, FaHandshake, FaBlog } from 'react-icons/fa';
+import SectionInfo from "@/components/SectionInfo"
 
 export default function OptionsCards() {
   return (
@@ -13,7 +14,8 @@ export default function OptionsCards() {
            onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.05)'}
            onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
         >
-          <div className="card-body">
+          <div className="card-body position-relative">
+              <SectionInfo message="Soumettez votre demande en formation grâce au formulaire de formation, vous aurai un e-mail de confirmation , appuyez pour consulter la page." color="secondary"/>
             <FaGraduationCap size={48} className="mb-3 text-primary" />
             <h5 className="card-title">Suivre la formation</h5>
             <p className="card-text text-muted">
@@ -29,8 +31,10 @@ export default function OptionsCards() {
            onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.05)'}
            onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
         >
-          <div className="card-body">
+          <div className="card-body position-relative">
+              <SectionInfo message="Ici, consulter nos partenaires et candidatez à base du formulaire(réservé uniquement aux entreprises) pour être parmis nos partenaires fiable, appuyez pour consulter la page." color="danger"/>
             <FaHandshake size={48} className="mb-3 text-success" />
+                
             <h5 className="card-title">Partenariat</h5>
             <p className="card-text text-muted">
               Collabore avec nous pour grandir ensemble.
@@ -45,8 +49,11 @@ export default function OptionsCards() {
            onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.05)'}
            onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
         >
-          <div className="card-body">
+          <div className="card-body position-relative">
+              <SectionInfo message="Ici, s'affiche nos dernières actualités et opportunités, appuyez pour consulter la page." color="info"/>
+            
             <FaBlog size={48} className="mb-3 text-info" />
+            
             <h5 className="card-title">Blog</h5>
             <p className="card-text text-muted">
               Lis nos dernières actualités et astuces.

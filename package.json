@@ -15,23 +15,26 @@
     "@sanity/image-url": "^1.1.0",
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
-    "bootstrap": "^5.3.6",
+    "bootstrap": "^5.3.7",
     "date-fns": "^4.1.0",
     "framer-motion": "^12.18.1",
     "next": "^15.3.4",
     "next-sanity": "^0.8.5",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.10.10",
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.5.2",
     "react-icons": "^5.5.0",
     "styled-components": "^6.1.19",
-    "swiper": "^11.2.8"
+    "swiper": "^11.2.8",
+    "uuid": "^11.1.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/uuid": "^10.0.0",
     "eslint": "^9",
     "eslint-config-next": "15.3.3",
     "typescript": "^5.8.3"
