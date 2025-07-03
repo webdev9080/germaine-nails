@@ -64,7 +64,7 @@ export default function Chatbot({ onClose }: ChatbotProps) {
 
   return (
     <div
-      className="shadow-lg rounded-3 d-flex flex-column bg-dark-subtle"
+      className="shadow-lg rounded-3 d-flex flex-column bg-dark-subtle mb-5"
       style={{ width: 320, maxHeight: 480, border: "2px solid #d81b60" }}
     >
       {/* Header */}

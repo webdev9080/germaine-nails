@@ -3,6 +3,12 @@
 import { useState } from "react"
 import dynamic from "next/dynamic"
 import { HiOutlineChat } from "react-icons/hi"
+import { MdChatBubble } from "react-icons/md"
+import { BsChatDotsFill } from "react-icons/bs"
+
+
+
+
 
 const Chatbot = dynamic(() => import("./Chatbot"), { ssr: false })
 
@@ -13,7 +19,7 @@ export default function ChatbotToggle() {
     <div
       style={{
         position: "fixed",
-        bottom: 80,          // ← hauteur au-dessus du bord bas (px)
+        bottom: 90,          // ← hauteur au-dessus du bord bas (px)
         right: 20,           // ← distance du bord droit (px)
         zIndex: 1080,
       }}
@@ -29,11 +35,13 @@ export default function ChatbotToggle() {
             width: 64,
             height: 64,
             borderRadius: "50%",
-            background: "#d81b60",
+            background: "#fff",
             border: "none",
           }}
         >
-          <HiOutlineChat size={28} color="#fff" />
+          {/*<MdChatBubble size={28} color="#93f365b1" />*/}
+          <BsChatDotsFill size={28} color="#6f42c1" />
+          
         </button>
       )}
     </div>
