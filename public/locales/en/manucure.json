@@ -1,0 +1,26 @@
+{
+  "title": "Manicure",
+  "subtitle": "Treat your hands to the care they deserve with professional and elegant services.",
+  "services": [
+    {
+      "title": "Classic Manicure",
+      "description": "Cleaning, filing, cuticle care, and polish application.",
+      "duration": "30 min",
+      "price": "4,000 FCFA"
+    },
+    {
+      "title": "Semi-Permanent",
+      "description": "Long-lasting resistance with a glossy finish.",
+      "duration": "45 min",
+      "price": "7,000 FCFA"
+    },
+    {
+      "title": "Nail Art",
+      "description": "Creative and personalized designs to enhance your nails.",
+      "duration": "60 min",
+      "price": "from 10,000 FCFA"
+    }
+  ],
+  "ctaTitle": "Book your manicure session today",
+  "ctaButton": "Make an appointment"
+}

@@ -1,25 +1,52 @@
+"use client";
 
-"use client"
+import { useTranslation } from "react-i18next";
+import { FiGlobe } from "react-icons/fi";
+import { useState, useRef, useEffect } from "react";
 
-import { useState } from "react"
-import { Form } from "react-bootstrap"
+export default function LanguageSelector() {
+  const { i18n } = useTranslation();
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
 
-export const LanguageSelector = () => {
-  const [lang, setLang] = useState("fr")
+  const handleClickOutside = (event: MouseEvent) => {
+    if (ref.current && !ref.current.contains(event.target as Node)) {
+      setOpen(false);
+    }
+  };
 
-  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const selected = e.target.value
-    setLang(selected)
-    localStorage.setItem("lang", selected)
-    // TODO: intégrer avec i18n
-  }
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const handleLanguageChange = (lang: string) => {
+    i18n.changeLanguage(lang);
+    localStorage.setItem("lang", lang);
+    setOpen(false);
+  };
 
   return (
-    <Form.Select value={lang} onChange={handleChange}>
-      <option value="fr">Français</option>
-      <option value="en">English</option>
-      <option value="de">Deutsch</option>
-      <option value="es">Español</option>
-    </Form.Select>
-  )
+    <div ref={ref} className="position-relative">
+      <button
+        className="btn btn-light border rounded-circle d-flex align-items-center justify-content-center"
+        onClick={() => setOpen(!open)}
+        style={{ width: "40px", height: "40px" }}
+        aria-label="Choisir la langue"
+      >
+        <FiGlobe size={20} />
+      </button>
+
+      {open && (
+        <div className="dropdown-menu show position-absolute mt-2" style={{ right: 0 }}>
+          <button className="dropdown-item" onClick={() => handleLanguageChange("fr")}>
+            🇫🇷 Français
+          </button>
+          <button className="dropdown-item" onClick={() => handleLanguageChange("en")}>
+            🇬🇧 English
+          </button>
+        </div>
+      )}
+    </div>
+  );
 }

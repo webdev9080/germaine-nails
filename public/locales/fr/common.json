@@ -1,0 +1,42 @@
+{
+  "settingsTitle": "Paramètres du compte",
+  "profileTitle": "Profil utilisateur",
+  "profileDescription": "Gérez votre compte et votre déconnexion.",
+  "darkModeTitle": "Mode Sombre",
+  "darkModeDescription": "Activez le mode sombre ou clair.",
+  "languageTitle": "Langue",
+  "languageDescription": "Choisissez votre langue préférée.",
+
+
+
+
+  "hero": {
+    "title1": "Révélez votre beauté avec",
+    "subtitle": "Des soins professionnels pour vos mains, pieds et visage",
+    "button": "Prendre rendez-vous"
+  },
+  "prestations": {
+    "title": "Nos prestations",
+    "subtitle": "Un aperçu de notre savoir-faire"
+  },
+  "services": {
+    "title": "Nos Services",
+    "manucure": {
+      "title": "Manucure",
+      "desc": "Sublimez vos ongles avec élégance"
+    },
+    "pedicure": {
+      "title": "Pédicure",
+      "desc": "Détente et soin pour vos pieds"
+    },
+    "soinsVisage": {
+      "title": "Soins Visage",
+      "desc": "Éclat naturel et hydratation en profondeur"
+    }
+  },
+  "formationSection": {
+    "title": "Formation • Partenariat • Blog"
+  }
+  
+
+}

@@ -1,0 +1,39 @@
+{
+  "settingsTitle": "Account Settings",
+  "profileTitle": "User Profile",
+  "profileDescription": "Manage your account and logout.",
+  "darkModeTitle": "Dark Mode",
+  "darkModeDescription": "Enable dark or light mode.",
+  "languageTitle": "Language",
+  "languageDescription": "Choose your preferred language.",
+
+
+
+  "hero": {
+    "title1": "Reveal your beauty with",
+    "subtitle": "Professional care for your hands, feet and face",
+    "button": "Book an appointment"
+  },
+  "prestations": {
+    "title": "Our Services",
+    "subtitle": "A glimpse of our expertise"
+  },
+  "services": {
+    "title": "Our Services",
+    "manucure": {
+      "title": "Manicure",
+      "desc": "Enhance your nails with elegance"
+    },
+    "pedicure": {
+      "title": "Pedicure",
+      "desc": "Relaxation and care for your feet"
+    },
+    "soinsVisage": {
+      "title": "Facial Care",
+      "desc": "Natural glow and deep hydration"
+    }
+  },
+  "formationSection": {
+    "title": "Training • Partnership • Blog"
+  }
+}

@@ -13,10 +13,10 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import BottomNavbar from "@/components/BottomNavbar";
 import BootstrapScript from "@/components/BootstrapScript";
-
 import ChatbotToggle from "@/components/ChatbotToggle";
 
-import { ThemeProvider } from "@/components/ThemeContext";  // <-- Import du ThemeProvider
+import { ThemeProvider } from "@/components/ThemeContext";
+import { I18nProvider } from "@/components/I18nProvider"; // ✅ à créer
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,23 +33,24 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <ClerkProvider>
       <html lang="fr">
         <body className={`${geistSans.className} d-flex flex-column min-vh-100`}>
-          <ThemeProvider> {/* <-- Enveloppe tout avec ThemeProvider */}
-            <BootstrapScript />
-            <Toaster position="bottom-right" toastOptions={{ duration: 4000 }} />
+          <ThemeProvider>
+            <I18nProvider> {/* ✅ Ajout du I18nProvider ici */}
+              <BootstrapScript />
+              <Toaster position="bottom-right" toastOptions={{ duration: 4000 }} />
 
-            <Navbar />
+              <Navbar />
 
-            <main className="flex-grow-1">
-              {children}
-              <SpeedInsights />
-              <Analytics />
-            </main>
+              <main className="flex-grow-1">
+                {children}
+                <SpeedInsights />
+                <Analytics />
+              </main>
 
-            <Footer />
-            <BottomNavbar />
+              <Footer />
+              <BottomNavbar />
 
-            {/* Bouton + fenêtre chatbot */}
-            <ChatbotToggle />
+              <ChatbotToggle />
+            </I18nProvider>
           </ThemeProvider>
         </body>
       </html>

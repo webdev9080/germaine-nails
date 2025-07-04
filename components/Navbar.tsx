@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
-
+import LanguageSelector from "@/components/LanguageSelector"
 export default function Navbar() {
   const navbarRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
@@ -61,7 +61,12 @@ export default function Navbar() {
             className="rounded-circle"
           />
           <span className="fw-bold fs-5">Germaine Nails</span>
+          
         </Link>
+        
+        <div className="d-flex justify-content-center">
+              <LanguageSelector />
+          </div>
 
         {/* Toggler */}
         <button

@@ -1,0 +1,26 @@
+{
+  "title": "Manucure",
+  "subtitle": "Offrez à vos mains le soin qu'elles méritent avec des prestations professionnelles et élégantes.",
+  "services": [
+    {
+      "title": "Manucure Classique",
+      "description": "Nettoyage, limage, soin des cuticules, pose de vernis.",
+      "duration": "30 min",
+      "price": "4 000 FCFA"
+    },
+    {
+      "title": "Semi-Permanent",
+      "description": "Résistance prolongée avec une finition brillante.",
+      "duration": "45 min",
+      "price": "7 000 FCFA"
+    },
+    {
+      "title": "Nail Art",
+      "description": "Designs créatifs et personnalisés pour sublimer vos ongles.",
+      "duration": "60 min",
+      "price": "à partir de 10 000 FCFA"
+    }
+  ],
+  "ctaTitle": "Réservez votre séance de manucure dès aujourd'hui",
+  "ctaButton": "Prendre rendez-vous"
+}
