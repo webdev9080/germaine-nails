@@ -1,16 +1,31 @@
+/* ============================
+   🎨 Thème clair par défaut
+   ============================ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-color: #ffffff;
+  --text-color: #171717;
+
+  --card-bg: #ffffff;
+  --card-border: #dddddd;
+
+  --primary-pink: #d63384;
+  --primary-pink-hover: #b32f72;
 }
 
-@media (prefers-color-scheme: white) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ============================
+   🌙 Thème sombre
+   ============================ */
+html.dark {
+  --bg-color: #121212;
+  --text-color: #eeeeee;
+
+  --card-bg: #1e1e1e;
+  --card-border: #333333;
 }
 
-
+/* ============================
+   🧱 Base HTML & BODY
+   ============================ */
 html,
 body {
   max-width: 100vw;
@@ -21,11 +36,12 @@ body {
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
+  background-color: var(--bg-color);
+  color: var(--text-color);
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 * {
@@ -39,16 +55,18 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+/* ============================
+   🧩 Composants communs
+   ============================ */
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-
-
-/**Partie hero de Home**/
-
+/* ============================
+   🖼️ Hero Section
+   ============================ */
 .hero-section {
   position: relative;
   background-image: url('/images/hero.jpg');
@@ -57,12 +75,11 @@ a {
   background-repeat: no-repeat;
   min-height: 200px;
   overflow: hidden;
-  /*padding: 1rem 0;*/
   animation: zoom-bg 15s ease-in-out infinite alternate;
 }
 
 .overlay {
-  background: rgba(0, 0, 0, 0.4); /* Overlay pour le contraste */
+  background: rgba(0, 0, 0, 0.4);
   width: 100%;
   height: 90%;
   padding: 4rem 1rem;
@@ -72,14 +89,12 @@ a {
   flex-direction: column;
 }
 
-/* ✅ Texte animé */
 .animate-fade-in {
   animation: fadeInUp 1.4s ease forwards;
   opacity: 0;
   transform: translateY(20px);
 }
 
-/* ✅ Animation texte */
 @keyframes fadeInUp {
   to {
     opacity: 1;
@@ -87,7 +102,6 @@ a {
   }
 }
 
-/* ✅ Zoom lent sur background */
 @keyframes zoom-bg {
   from {
     background-size: 100%;
@@ -97,46 +111,40 @@ a {
   }
 }
 
-
-/*Partie couleur Pink */
-/*.btn-pink {
-  background-color: #d63384;
-  border: none;
-  border-radius: 30px;
-}*/
-
-
-.text-pink {
-  color: #d63384;
-}
-
-.bg-pink {
-  background-color: #d63384;
-}
-
+/* ============================
+   🎀 Boutons Pink
+   ============================ */
 .btn-pink {
-  background-color: #d63384;
+  background-color: var(--primary-pink);
   color: #fff;
-  border: 1px solid #d63384;
+  border: 1px solid var(--primary-pink);
   border-radius: 30px;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .btn-pink:hover {
-  background-color: #b32f72;
+  background-color: var(--primary-pink-hover);
   color: #fff;
 }
 
 .btn-outline-pink {
-  border: 1px solid #d63384;
-  color: #d63384;
+  border: 1px solid var(--primary-pink);
+  color: var(--primary-pink);
   background: transparent;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .btn-outline-pink:hover {
-  background-color: #d63384;
+  background-color: var(--primary-pink);
   color: #fff;
+}
+
+.text-pink {
+  color: var(--primary-pink);
+}
+
+.bg-pink {
+  background-color: var(--primary-pink);
 }
 
 .hover-shadow:hover {
@@ -146,35 +154,34 @@ a {
   cursor: pointer;
 }
 
-
+/* ============================
+   🖼️ Carrousel
+   ============================ */
 .carrousel-wrapper {
   display: flex;
   gap: 0.5rem;
   overflow-x: auto;
   padding: 0.2rem;
   scroll-snap-type: x mandatory;
-  /*-webkit-overflow-scrolling: touch;*/
 }
 
 .carrousel-item {
   flex: 0 0 auto;
   width: 130px;
-  background: white;
+  background: var(--card-bg);
   border-radius: 1rem;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   scroll-snap-align: center;
   text-align: center;
 }
 
-/* Medium devices (tablets ≥ 768px) */
+/* Responsive */
 @media (min-width: 768px) {
-  
   .carrousel-wrapper {
     justify-content: center;
-    overflow-x: hidden; /* plus de scroll sur PC */
+    overflow-x: hidden;
     flex-wrap: wrap;
     margin-left: 4px;
-    
   }
 
   .carrousel-item {
@@ -182,13 +189,11 @@ a {
   }
 }
 
-/* Large devices (desktop ≥ 1024px) */
 @media (min-width: 1024px) {
   .carrousel-wrapper {
     justify-content: center;
-    overflow-x: hidden; /* plus de scroll sur PC */
+    overflow-x: hidden;
     flex-wrap: wrap;
-    
   }
 
   .carrousel-item {
@@ -197,14 +202,13 @@ a {
   }
 }
 
-
+/* ============================
+   🖼️ Swiper
+   ============================ */
 .swiper-container {
   width: 75%;
   height: 150px;
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
-  border-bottom-left-radius: 1rem;
-  border-bottom-right-radius: 1rem;
+  border-radius: 1rem;
   margin-top: 5px;
 }
 
@@ -212,10 +216,12 @@ a {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
+  border-radius: 1rem;
 }
 
+/* ============================
+   🖊️ Titres, boutons, etc.
+   ============================ */
 .title {
   font-size: 1.1rem;
   font-weight: bold;
@@ -225,7 +231,7 @@ a {
 .voir-plus {
   margin: 0.75rem 0 1.25rem;
   padding: 0.5rem 1rem;
-  background-color: #d63384;
+  background-color: var(--primary-pink);
   color: white;
   border: none;
   border-radius: 999px;
@@ -234,11 +240,12 @@ a {
 }
 
 .voir-plus:hover {
-  background-color: #b02a6e;
+  background-color: var(--primary-pink-hover);
 }
 
-
-
+/* ============================
+   ⏳ Fallback & Skeleton
+   ============================ */
 .fallback-message {
   background-color: #fff3cd;
   color: #856404;
@@ -255,7 +262,6 @@ a {
   font-style: italic;
 }
 
-/*Partie SkeletonCard*/
 .animate-pulse {
   animation: pulse 1.5s ease-in-out infinite;
   height: 150px;
@@ -273,8 +279,9 @@ a {
   }
 }
 
-
-/*Partie Chatbot IA*/
+/* ============================
+   🤖 Chatbot Messenger Icon
+   ============================ */
 @keyframes messengerPulse {
   0%, 100% {
     transform: translateY(0) scale(1);
@@ -288,6 +295,5 @@ a {
 
 .messenger-icon-animated {
   animation: messengerPulse 2.5s ease-in-out infinite;
-  /* Optionnel : ajouter une transition douce quand on clique */
   transition: transform 0.2s ease;
 }

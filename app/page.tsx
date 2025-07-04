@@ -7,10 +7,12 @@ import styles from "./page.module.css";
 import OptionCard from "@/components/OptionCard";
 import CarrouselPrestations from "@/components/CarrouselPrestations";
 import ClientWrapper from "@/components/ClientWrapper";
+import Bienvenue from "@/components/Bienvenue";
 
 export default function Home() {
   return (
     <main className="bg-white text-dark">
+        
 
       {/* Hero Section */}
       <section className="hero-section position-relative text-white d-flex align-items-center justify-content-center py-3" style={{ minHeight: "50vh", background: "url('/images/hero.jpg') center/cover no-repeat" }}>
@@ -81,6 +83,8 @@ export default function Home() {
           <OptionCard />
         </div>
       </section>
+      
+      <Bienvenue />
 
     </main>
   );

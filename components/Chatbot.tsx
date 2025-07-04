@@ -65,7 +65,7 @@ export default function Chatbot({ onClose }: ChatbotProps) {
   return (
     <div
       className="shadow-lg rounded-3 d-flex flex-column bg-dark-subtle mb-5"
-      style={{ width: 320, maxHeight: 480, border: "2px solid #d81b60" }}
+      style={{ width: 280, maxHeight: 450, border: "2px solid #d81b60" }}
     >
       {/* Header */}
       <div
@@ -76,7 +76,7 @@ export default function Chatbot({ onClose }: ChatbotProps) {
         <button
           onClick={onClose}
           className="btn btn-sm btn-light text-danger d-flex align-items-center justify-content-center"
-          style={{ width: 28, height: 28 }}
+          style={{ width: 25, height: 25 }}
           aria-label="Fermer"
         >
           <FaTimes size={14} />
@@ -114,7 +114,7 @@ export default function Chatbot({ onClose }: ChatbotProps) {
       </div>
 
       {/* Input */}
-      <div className="p-3 border-top bg-white">
+      <div className="p-3 border-top bg-dark-subtle">
         <Form.Control
           value={input}
           onChange={(e) => setInput(e.target.value)}

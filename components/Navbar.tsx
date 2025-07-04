@@ -80,17 +80,21 @@ export default function Navbar() {
         <div className="collapse navbar-collapse" id="mainNavbar">
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link href="/dashboardclerk" className="nav-link">Dashboard</Link>
+              <Link href="/dashboard" className="nav-link">Dashboard</Link>
             </li>
-            <li className="nav-item">
-              <Link href="/prestations" className="nav-link">Prestations</Link>
-            </li>
+            
             <li className="nav-item">
               <Link href="/galerie" className="nav-link">Galerie</Link>
             </li>
+            
             <li className="nav-item">
               <Link href="/contact" className="nav-link">Contact</Link>
             </li>
+            
+            <li className="nav-item">
+              <Link href="/settings" className="nav-link">Paramètres</Link>
+            </li>
+            
           </ul>
         </div>
       </div>
