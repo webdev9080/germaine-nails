@@ -1,0 +1,26 @@
+{
+  "bannerTitle": "Facial Treatments",
+  "bannerDescription": "Restore radiance and freshness to your skin with our facial treatments tailored to every skin type.",
+  "ctaTitle": "Give your face a youthful glow",
+  "ctaButton": "Make an appointment",
+  "services": [
+    {
+      "title": "Express Cleanse",
+      "description": "Makeup removal, exfoliation, toning, and hydration.",
+      "duration": "30 min",
+      "price": "5,000 FCFA"
+    },
+    {
+      "title": "Anti-Acne Treatment",
+      "description": "Deep cleansing, purifying mask, and targeted treatment.",
+      "duration": "45 min",
+      "price": "8,000 FCFA"
+    },
+    {
+      "title": "Anti-Aging Treatment",
+      "description": "Lifting massage, firming mask, and revitalizing serum.",
+      "duration": "60 min",
+      "price": "12,000 FCFA"
+    }
+  ]
+}

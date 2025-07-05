@@ -42,7 +42,7 @@ export default function Bienvenue() {
           setGreeting(greetingText)
 
           toast.success(`${greetingText}, ${data.nom ?? 'Utilisateur'} 👋`, {
-            duration: 4000,
+            duration: 6000,
           })
 
           setShowAnimation(true)

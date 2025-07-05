@@ -9,7 +9,9 @@ export default function ManucurePage() {
   return (
     <main className="bg-white text-dark mt-2">
         
-      <ManucureClient />
+      <div className="mb-1 bg-light">
+          <ManucureClient />
+      </div>
 
       <div className="bg-light">
         <SanityCarousel type="manucure" />

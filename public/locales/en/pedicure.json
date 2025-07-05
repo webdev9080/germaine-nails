@@ -1,0 +1,26 @@
+{
+  "bannerTitle": "Pedicure",
+  "bannerDescription": "Give your feet a moment of relaxation and beauty with our specialized and soothing treatments.",
+  "ctaTitle": "Take care of your feet today",
+  "ctaButton": "Make an appointment",
+  "cards": [
+    {
+      "title": "Classic Pedicure",
+      "description": "Cleaning, cutting, filing, and moisturizing the feet.",
+      "duration": "40 min",
+      "price": "5,000 FCFA"
+    },
+    {
+      "title": "Spa Treatment",
+      "description": "Foot bath, scrub, relaxing massage, and moisturizing mask.",
+      "duration": "60 min",
+      "price": "9,000 FCFA"
+    },
+    {
+      "title": "Nail Beauty",
+      "description": "Application of classic or semi-permanent nail polish on feet.",
+      "duration": "30 to 45 min",
+      "price": "from 6,000 FCFA"
+    }
+  ]
+}

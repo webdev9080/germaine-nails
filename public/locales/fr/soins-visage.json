@@ -1,0 +1,26 @@
+{
+  "bannerTitle": "Soins du Visage",
+  "bannerDescription": "Redonnez éclat et fraîcheur à votre peau grâce à nos soins du visage adaptés à chaque type de peau.",
+  "ctaTitle": "Offrez à votre visage une nouvelle jeunesse",
+  "ctaButton": "Prendre rendez-vous",
+  "services": [
+    {
+      "title": "Nettoyage Express",
+      "description": "Démaquillage, gommage, tonification et hydratation.",
+      "duration": "30 min",
+      "price": "5 000 FCFA"
+    },
+    {
+      "title": "Soin Anti-Acné",
+      "description": "Nettoyage profond, masque purifiant et traitement ciblé.",
+      "duration": "45 min",
+      "price": "8 000 FCFA"
+    },
+    {
+      "title": "Soin Anti-Âge",
+      "description": "Massage liftant, masque raffermissant et sérum revitalisant.",
+      "duration": "60 min",
+      "price": "12 000 FCFA"
+    }
+  ]
+}

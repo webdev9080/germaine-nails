@@ -144,7 +144,7 @@ return ( <main className="bg-white text-dark"> <section className="bg-light py-5
         Suivez-nous sur <strong>Instagram</strong> pour nos dernières créations !
       </p>
       <Link
-        href="https://www.instagram.com/germaine.nails"
+        href="#https://www.instagram.com/germaine.nails"
         target="_blank"
         rel="noopener"
         className="btn btn-pink rounded-pill px-5 py-2 fw-bold"

@@ -1,0 +1,26 @@
+{
+  "bannerTitle": "Pédicure",
+  "bannerDescription": "Offrez à vos pieds un moment de détente et de beauté avec nos soins spécialisés et apaisants.",
+  "ctaTitle": "Prenez soin de vos pieds dès aujourd'hui",
+  "ctaButton": "Prendre rendez-vous",
+  "cards": [
+    {
+      "title": "Pédicure Classique",
+      "description": "Nettoyage, coupe, limage et hydratation des pieds.",
+      "duration": "40 min",
+      "price": "5 000 FCFA"
+    },
+    {
+      "title": "Soin Spa",
+      "description": "Bain de pieds, gommage, massage relaxant et masque hydratant.",
+      "duration": "60 min",
+      "price": "9 000 FCFA"
+    },
+    {
+      "title": "Beauté des Ongles",
+      "description": "Pose de vernis classique ou semi-permanent sur les pieds.",
+      "duration": "30 à 45 min",
+      "price": "à partir de 6 000 FCFA"
+    }
+  ]
+}

@@ -39,9 +39,8 @@ export default function ChatbotToggle() {
             border: "none",
           }}
         >
-          {/*<MdChatBubble size={28} color="#93f365b1" />*/}
+   
           <BsChatDotsFill size={28} color="#6f42c1" />
-          
         </button>
       )}
     </div>
