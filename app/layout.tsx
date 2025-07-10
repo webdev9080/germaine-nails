@@ -14,6 +14,7 @@ import Footer from "@/components/Footer";
 import BottomNavbar from "@/components/BottomNavbar";
 import BootstrapScript from "@/components/BootstrapScript";
 import ChatbotToggle from "@/components/ChatbotToggle";
+import InstallPrompt from "@/components/InstallPrompt";
 
 import { ThemeProvider } from "@/components/ThemeContext";
 import { I18nProvider } from "@/components/I18nProvider"; // ✅ à créer
@@ -32,11 +33,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <ClerkProvider>
       <html lang="fr">
+        <head>
+          <link rel="manifest" href="/manifest.json" />
+          <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
+          <link rel="apple-touch-startup-image" href="/splash/splash-512.png" /> {/* ✅ Splash ajouté */}
+          <meta name="theme-color" content="#d63384" />
+          <meta name="apple-mobile-web-app-capable" content="yes" />
+          <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        </head>
+
         <body className={`${geistSans.className} d-flex flex-column min-vh-100`}>
           <ThemeProvider>
-            <I18nProvider> {/* ✅ Ajout du I18nProvider ici */}
+            <I18nProvider>
               <BootstrapScript />
-              <Toaster position="bottom-right" toastOptions={{ duration: 4000 }} />
+              <Toaster position="bottom-right" toastOptions={{ duration: 5000 }} />
 
               <Navbar />
 
@@ -50,6 +60,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <BottomNavbar />
 
               <ChatbotToggle />
+                  <InstallPrompt />
             </I18nProvider>
           </ThemeProvider>
         </body>
