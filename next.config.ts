@@ -22,4 +22,21 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
 };
 
-export default withPWA(nextConfig);
+export const headers = async () => {
+  return [
+    {
+      source: "/manifest.json",
+      headers: [
+        {
+          key: "Content-Type",
+          value: "application/manifest+json",
+        },
+      ],
+    },
+  ];
+};
+
+export default withPWA({
+  ...nextConfig,
+  headers,
+});
