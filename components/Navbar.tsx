@@ -54,7 +54,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="navbar-brand d-flex align-items-center gap-2">
           <Image
-            src="/images/logo2.png"
+            src="/images/logo-site.png"
             alt="Germaine Nails"
             width={80}
             height={60}
