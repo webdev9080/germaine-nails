@@ -34,7 +34,7 @@ export default function Footer() {
           </a>
         </div>
 
-        <div className="mt-3">
+        <div className="mt-3 p-2">
           <Link
             href="/politique-confidentialite"
             className="text-decoration-underline text-muted small"
@@ -44,14 +44,14 @@ export default function Footer() {
           
           <Link
             href="/mentions-legales"
-            className="text-decoration-underline text-muted small"
+            className="text-decoration-underline text-muted small text-success-subtle"
           >
             Mentions Légales
           </Link>
           
           <Link
             href="/conditions-vente"
-            className="text-decoration-underline text-muted small"
+            className="text-decoration-underline text-muted small text-warning-subtle"
           >
             Conditions de Vente
           </Link>        
