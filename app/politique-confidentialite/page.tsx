@@ -1,4 +1,6 @@
 import Script from "next/script";
+import AdBanner from "@/components/ads/AdBanner";
+
 
 export const metadata = {
   title: "Politique de confidentialité - Germaine Nails",
@@ -67,6 +69,9 @@ export default function PolitiqueConfidentialitePage() {
             Dernière mise à jour : <strong>28 juin 2025</strong>
           </p>
         </div>
+      </div>
+      <div className="container">
+          <AdBanner adSlot="4478125382" />
       </div>
     </main>
   );

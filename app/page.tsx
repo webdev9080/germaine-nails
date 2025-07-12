@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./page.module.css";
@@ -12,6 +13,14 @@ import { useTranslation } from "react-i18next";
 
 export default function Home() {
   const { t } = useTranslation("common");
+
+  useEffect(() => {
+    try {
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+    } catch (e) {
+      console.error("Adsense error:", e);
+    }
+  }, []);
 
   return (
     <main className="bg-white text-dark">
@@ -74,6 +83,16 @@ export default function Home() {
             ))}
           </div>
         </div>
+
+        {/* --- Bannière Google AdSense --- */}
+        <ins
+          className="adsbygoogle"
+          style={{ display: "block", marginTop: "2rem" }}
+          data-ad-client="ca-pub-8324514138250709"
+          data-ad-slot="4478125382"
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        />
       </section>
 
       {/* OptionCard Section */}

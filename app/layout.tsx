@@ -35,13 +35,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <ClerkProvider>
       <html lang="fr">
         <head>
-          <link rel="manifest" href="/manifest.json" />
-          <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
-          <link rel="apple-touch-startup-image" href="/splash/splash-512.png" />
-          <meta name="theme-color" content="#d63384" />
-          <meta name="apple-mobile-web-app-capable" content="yes" />
-          <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        </head>
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
+  <link rel="apple-touch-startup-image" href="/splash/splash-512.png" />
+  <meta name="theme-color" content="#d63384" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <Script
+    id="adsbygoogle-init"
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8324514138250709"
+    crossOrigin="anonymous"
+    type="text/javascript"
+    strategy="lazyOnload"
+    data-cookieconsent="marketing"
+  />
+</head>
 
         <body className={`${geistSans.className} d-flex flex-column min-vh-100`}>
             <Script        
@@ -49,6 +57,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 data-consentmode="explicit"
 type="text/javascript"
 strategy="beforeInteractive"
+ 
 />
           <ThemeProvider>
             <I18nProvider>
