@@ -41,6 +41,20 @@ export default function Footer() {
           >
             Politique de confidentialité
           </Link>
+          
+          <Link
+            href="/mentions-legales"
+            className="text-decoration-underline text-muted small"
+          >
+            Mentions Légales
+          </Link>
+          
+          <Link
+            href="/conditions-vente"
+            className="text-decoration-underline text-muted small"
+          >
+            Conditions de Vente
+          </Link>        
         </div>
 
         <p className="mb-0 mt-2 text-muted small">
