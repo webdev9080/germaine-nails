@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://germaine-nails-tg.vercel.app
+
+# Sitemaps
+Sitemap: https://germaine-nails-tg.vercel.app/sitemap.xml
