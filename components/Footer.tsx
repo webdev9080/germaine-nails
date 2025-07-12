@@ -44,7 +44,7 @@ export default function Footer() {
           
           <Link
             href="/mentions-legales"
-            className="text-decoration-underline text-muted small text-success-subtle"
+            className="text-decoration-underline text-muted small text-success-subtle mx-2"
           >
             Mentions Légales
           </Link>
