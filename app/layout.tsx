@@ -44,7 +44,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </head>
 
         <body className={`${geistSans.className} d-flex flex-column min-vh-100`}>
-            <Script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="90249a1a-efa3-4396-ade5-d21396cd07b9" data-blockingmode="auto" type="text/javascript" strategy="beforeInteractive" />
+            <Script        
+            id="Cookiebot"                         src="https://consent.cookiebot.com/uc.js" data-cbid="90249a1a-efa3-4396-ade5-d21396cd07b9" data-blockingmode="auto" 
+data-consentmode="explicit"
+type="text/javascript"
+strategy="beforeInteractive"
+/>
           <ThemeProvider>
             <I18nProvider>
               <BootstrapScript />
