@@ -1,7 +1,10 @@
-export const metadata = {
+import { generateMetadata } from "@/utils/metadata";
+
+export const metadata = generateMetadata({
   title: "Mentions légales - Germaine Nails",
   description: "Mentions légales du site Germaine Nails.",
-};
+  path: "/mentions-legales",
+});
 
 export default function MentionsLegalesPage() {
   return (

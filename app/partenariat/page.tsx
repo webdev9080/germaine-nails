@@ -1,7 +1,15 @@
+
 import { FaHandshake, FaCheckCircle } from "react-icons/fa"
 import PartenariatForm from "./PartenariatForm"
 import FaqServerSection from "./FaqServerSection"
 import PartenairesActuelsSection from "./PartenairesActuelsSection"
+import { generateMetadata } from "@/utils/metadata";
+
+export const metadata = generateMetadata({
+  title: "Partenariat - Germaine Nails",
+  description: "Rejoignez Germaine Nails comme partenaire et développez votre visibilité et vos ventes.",
+  path: "/partenariat",
+});
 
 export default function PartenariatPage() {
   return (

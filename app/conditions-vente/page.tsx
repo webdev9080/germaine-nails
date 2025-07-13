@@ -1,7 +1,12 @@
-export const metadata = {
+import { generateMetadata } from "@/utils/metadata";
+
+
+export const metadata = generateMetadata({
   title: "Conditions générales de vente - Germaine Nails",
   description: "Conditions de vente pour les prestations et produits achetés via WhatsApp.",
-};
+  path: "/conditions-vente",
+});
+
 
 export default function ConditionsVentePage() {
   return (

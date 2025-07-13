@@ -1,11 +1,13 @@
 import Script from "next/script";
+import { generateMetadata } from "@/utils/metadata";
 import AdBanner from "@/components/ads/AdBanner";
 
 
-export const metadata = {
+export const metadata = generateMetadata({
   title: "Politique de confidentialité - Germaine Nails",
   description: "Découvrez notre politique de confidentialité concernant la collecte et l'utilisation de vos données.",
-};
+  path: "/politique-confidentialite",
+});
 
 export default function PolitiqueConfidentialitePage() {
   return (
