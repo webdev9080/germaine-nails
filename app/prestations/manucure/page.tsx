@@ -1,10 +1,19 @@
 // app/prestations/manucure/page.tsx ✅ NE PAS ajouter "use client"
+
 import Link from 'next/link'
 import SanityCarousel from '@/components/SanityCarousel'
 import TemoignagesSection from '@/components/TemoignagesSection'
 import FaqSection from '@/components/FaqSection'
 import ManucureClient from './ManucureClient'
 
+import { generateMetadata } from '@/utils/metadata'
+
+export const metadata = generateMetadata({
+  title: "Manucure - Germaine Nails",
+  description: "Découvrez nos soins de manucure à Lomé pour des ongles éclatants et soignés.",
+  path: "/prestations/manucure",
+});
+  
 export default function ManucurePage() {
   return (
     <main className="bg-white text-dark mt-2">
@@ -17,7 +26,6 @@ export default function ManucurePage() {
         <SanityCarousel type="manucure" />
       </div>
       
-
       <TemoignagesSection categorie="manucure" />
       <FaqSection categorie="manucure" />
 
