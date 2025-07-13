@@ -33,11 +33,13 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <ClerkProvider>
       <html lang="fr">
         <head>
+          <meta name="robots" content="index, follow" />
           <meta name="google-site-verification" content="64KK1ftpyB_dhS9x4-3DWtKKBCOR4QM6FQqKirgbqt4" />
           <link rel="manifest" href="/manifest.json" />
           <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
