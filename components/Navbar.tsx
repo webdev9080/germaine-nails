@@ -57,7 +57,7 @@ export default function Navbar() {
             src="/images/logo-site.png"
             alt="Germaine Nails"
             width={80}
-            height={60}
+            height={80}
             className="rounded-circle"
           />
           <span className="fw-bold fs-5">Germaine Nails</span>
