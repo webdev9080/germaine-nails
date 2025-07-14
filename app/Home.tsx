@@ -7,7 +7,6 @@ import styles from "./page.module.css";
 import OptionCard from "@/components/OptionCard";
 import CarrouselPrestations from "@/components/CarrouselPrestations";
 import ClientWrapper from "@/components/ClientWrapper";
-import Bienvenue from "@/components/Bienvenue";
 import { useTranslation } from "react-i18next";
 
 
@@ -115,7 +114,6 @@ export default function Home() {
         </div>
       </section>
 
-      <Bienvenue />
     </main>
   );
 }

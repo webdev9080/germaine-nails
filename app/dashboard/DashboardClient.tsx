@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import ContactMessage from '@/components/ContactMessage';
 import UserCard from '@/components/UserCard';
+import Bienvenue from "@/components/Bienvenue";
 
 export default function DashboardClient() {
   const [user, setUser] = useState<any>(null);
@@ -66,6 +67,8 @@ export default function DashboardClient() {
           />
         ))}
       </div>
+      
+      <Bienvenue />
     </div>
   );
 }
