@@ -19,9 +19,9 @@ import { ThemeProvider } from "@/components/ThemeContext";
 import { I18nProvider } from "@/components/I18nProvider";
 
 import { generateMetadata } from "@/utils/metadata";
-import { Providers } from "./providers"; // <-- Import ici
+import { Providers } from "./providers";
 
-export const metadata = generateMetadata({
+export const metadata: Metadata = generateMetadata({
   title: "Germaine | Nails",
   description: "Bienvenue chez Germaine Nails, votre espace de soins de beauté à Lomé.",
 });
@@ -48,21 +48,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           id="adsbygoogle-init"
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8324514138250709"
           crossOrigin="anonymous"
-          type="text/javascript"
           strategy="lazyOnload"
-          data-cookieconsent="marketing"
         />
       </head>
+
       <body className={`${geistSans.className} d-flex flex-column min-vh-100`}>
-        <Script
-          id="Cookiebot"
-          src="https://consent.cookiebot.com/uc.js"
-          data-cbid="90249a1a-efa3-4396-ade5-d21396cd07b9"
-          data-blockingmode="auto"
-          data-consentmode="explicit"
-          type="text/javascript"
-          strategy="beforeInteractive"
-        />
         <Providers>
           <ThemeProvider>
             <I18nProvider>
