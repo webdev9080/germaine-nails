@@ -4,15 +4,17 @@ import { Metadata } from "next";
 type MetaOptions = {
   title?: string;
   description?: string;
-  path?: string; // pour gérer les URL dynamiques
+  path?: string;
+  robots?: string; // 👈 on ajoute ici
 };
 
 export function generateMetadata({
   title = "Germaine | Nails",
   description = "Pédicure, manucure, soins visage à Lomé. Découvrez nos services de qualité !",
   path = "/",
+  robots,
 }: MetaOptions): Metadata {
-  const baseUrl = "https://germaine-nails-tg.vercel.app"; // à personnaliser
+  const baseUrl = "https://germaine-nails-tg.vercel.app";
 
   return {
     title,
@@ -33,5 +35,6 @@ export function generateMetadata({
       title,
       description,
     },
+    robots, // 👈 on ajoute ici
   };
 }

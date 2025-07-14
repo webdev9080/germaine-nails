@@ -135,7 +135,7 @@ return ( <div>
   {/* Carte d'accès + CTA */}
   <section className="bg-dark text-white py-5 text-center">
     <div className="container">
-      <h3 className="mb-3">Notre institut vous attend à Agbalépédogan</h3>
+      <h3 className="mb-3">Notre institut vous attend à Djidjolé </h3>
       <p className="mb-4">Contactez-nous dès maintenant pour toute question</p>
       <a href="https://wa.me/22870306224" className="btn btn-success btn-lg">
         <FaWhatsapp className="me-2" /> Écrire sur WhatsApp

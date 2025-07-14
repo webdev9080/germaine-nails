@@ -59,6 +59,8 @@ export default function PolitiqueConfidentialitePage() {
             Pour toute question relative à cette politique, n'hésitez pas à nous contacter par e-mail à <strong>smithwedzi@gmail.com</strong>.
           </p>
         </section>
+        
+        <AdBanner adSlot="4478125382" />
 
         <div className="text-center">
           <p className="text-muted small">
@@ -66,9 +68,7 @@ export default function PolitiqueConfidentialitePage() {
           </p>
         </div>
       </div>
-      <div className="container">
-          <AdBanner adSlot="4478125382" />
-      </div>
+      
     </main>
   );
 }

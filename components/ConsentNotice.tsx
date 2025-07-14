@@ -9,17 +9,13 @@ export default function ConsentNotice() {
   useEffect(() => {
     const hasAccepted = localStorage.getItem("consent-given");
 
-    // Si l'utilisateur n'a pas encore accepté, et qu'il n'est pas dans l'EEE (CMP Google)
-    const regionNotInEEE =
-      !navigator.language.startsWith("fr") &&
-      !navigator.language.startsWith("de") &&
-      !navigator.language.startsWith("es") &&
-      !navigator.language.startsWith("it") &&
-      !navigator.language.startsWith("nl") &&
-      !navigator.language.startsWith("en");
+    if (!hasAccepted) {
+      // CMP Google ne s’affiche que dans l’EEE, donc on affiche cette bannière partout ailleurs
+      const isInEurope = Intl.DateTimeFormat().resolvedOptions().timeZone.startsWith("Europe");
 
-    if (!hasAccepted && regionNotInEEE) {
-      setVisible(true);
+      if (!isInEurope) {
+        setVisible(true);
+      }
     }
   }, []);
 
