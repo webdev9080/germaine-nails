@@ -6,10 +6,30 @@ const isPublicRoute = createRouteMatcher([
   '/sign-in(.*)',
   '/sign-up(.*)',
   '/unauthorized(.*)',
-  '/favicon.ico',    // facultatif
-  '/manifest.json',  // facultatif
-  '/sitemap.xml',    // facultatif
-  '/robots.txt',     // facultatif
+  '/favicon.ico',
+  '/manifest.json',
+  '/robots.txt',
+  '/sitemap.xml',
+
+  // Pages publiques
+  '/galerie(.*)',
+  '/prestations(.*)',
+  '/prestations/manucure(.*)',
+  '/prestations/pedicure(.*)',
+  '/prestations/soins-visage(.*)',
+  '/contact(.*)',
+  '/blog(.*)',
+  '/messages(.*)',
+  '/shop(.*)',
+
+  // API publiques appelées dans ces pages
+  
+  '/api/galleryImages',
+  '/api/galleryVideos',
+  '/api/articles',
+  '/api/blogs',
+  '/api/prestations',
+  '/api/messagesBottom',
 ])
 
 export default clerkMiddleware(async (auth, req) => {
