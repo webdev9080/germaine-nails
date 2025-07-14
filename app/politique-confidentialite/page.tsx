@@ -1,4 +1,4 @@
-import Script from "next/script";
+
 import { generateMetadata } from "@/utils/metadata";
 import AdBanner from "@/components/ads/AdBanner";
 
@@ -38,18 +38,12 @@ export default function PolitiqueConfidentialitePage() {
         <section className="mb-4">
           <h2 className="h5 fw-bold text-pink">3. Cookies</h2>
           <p>
-            Notre site utilise des cookies nécessaires, ainsi que des cookies optionnels soumis à votre consentement via le bandeau Cookiebot.
+            Notre site utilise des cookies nécessaires, ainsi que des cookies optionnels soumis à votre consentement via le bandeau .
           </p>
 
-          {/* ✅ Script Cookiebot pour afficher la liste des cookies déclarés */}
-          <Script
-            id="CookieDeclaration"
-            src="https://consent.cookiebot.com/90249a1a-efa3-4396-ade5-d21396cd07b9/cd.js"
-            type="text/javascript"
-            strategy="afterInteractive"
-            async
-          />
-          <div id="CookieDeclaration" className="mt-3" />
+          <p className="small text-muted">
+  Ce site utilise des cookies nécessaires au fonctionnement et à la mesure d'audience. Les cookies marketing sont soumis à votre consentement.
+</p>
         </section>
 
         <section className="mb-4">

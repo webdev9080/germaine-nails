@@ -17,6 +17,7 @@ import ChatbotToggle from "@/components/ChatbotToggle";
 import InstallPrompt from "@/components/InstallPrompt";
 import { ThemeProvider } from "@/components/ThemeContext";
 import { I18nProvider } from "@/components/I18nProvider";
+import ConsentNotice from "@/components/ConsentNotice";
 
 import { generateMetadata } from "@/utils/metadata";
 import { Providers } from "./providers";
@@ -68,6 +69,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <BottomNavbar />
               <ChatbotToggle />
               <InstallPrompt />
+              <ConsentNotice />
             </I18nProvider>
           </ThemeProvider>
         </Providers>
