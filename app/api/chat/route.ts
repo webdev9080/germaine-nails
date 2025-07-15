@@ -3,9 +3,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import OpenAI from 'openai'
 import { sanity } from '@/lib/sanity'
 
-/* ──────────────────────────────────────────────────────────────
- *  Configuration OpenRouter
- *  ────────────────────────────────────────────────────────────*/
+
 const openai = new OpenAI({
   apiKey: process.env.OPENROUTER_API_KEY!, // Clé API OpenRouter (or-xxxx)
   baseURL: 'https://openrouter.ai/api/v1',
@@ -15,9 +13,8 @@ const openai = new OpenAI({
   },
 })
 
-/* ──────────────────────────────────────────────────────────────
- *  Fonction utilitaire : Appel modèle avec fallback
- *  ────────────────────────────────────────────────────────────*/
+
+
 async function generateCompletion(prompt: string) {
   const models = [
     'mistralai/mistral-7b-instruct:free',
@@ -58,9 +55,7 @@ async function generateCompletion(prompt: string) {
   }
 }
 
-/* ──────────────────────────────────────────────────────────────
- *  POST /api/chat
- *  ────────────────────────────────────────────────────────────*/
+
 export async function POST(req: NextRequest) {
   try {
     /* ── 1. Lecture du message utilisateur ──────────────────── */
