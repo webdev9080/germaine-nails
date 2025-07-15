@@ -58,6 +58,7 @@ export default function SanityCarousel({ type }: SanityCarouselProps) {
             src={item.image.asset.url}
             className="card-img-top"
             alt={item.title}
+            priority
             style={{ height: 200, objectFit: 'cover' }}
           />
           <div className="card-body text-center">

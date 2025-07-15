@@ -58,6 +58,7 @@ export default function Navbar() {
             alt="Germaine Nails"
             width={80}
             height={80}
+            priority
             className="rounded-circle"
           />
           <span className="fw-bold fs-5">Germaine Nails</span>
