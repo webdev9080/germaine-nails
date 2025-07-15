@@ -50,7 +50,7 @@ const nextConfig: NextConfig = {
       },
       // ✅ Cache modéré pour les pages ISR
       {
-        source: "/(blog|shop|prestations|partenariat)(.*)",
+        source: "/(blog|shop)(.*)",
         headers: [
           {
             key: "Cache-Control",

@@ -6,6 +6,7 @@ export const generateMetadata = () =>
     title: 'Paramètres | Germaine Nails',
     description: 'Gérez votre profil, thème et langue d’affichage.',
     path: '/settings',
+    noIndex: true,
   });
 
 export default function SettingsPage() {

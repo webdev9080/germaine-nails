@@ -6,7 +6,7 @@ export const generateMetadata = () =>
     title: 'Dashboard Admin | Germaine Nails',
     description: 'Accédez au tableau de bord pour gérer les utilisateurs et messages.',
     path: '/dashboard',
-    robots: 'noindex', // 👈 ici
+    noIndex: true, // 👈 ici
   });
 
 export default function DashboardPage() {
