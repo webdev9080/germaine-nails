@@ -1,4 +1,3 @@
-// app/api/chat/route.ts
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { NextRequest, NextResponse } from 'next/server'
 import OpenAI from 'openai'
@@ -8,13 +7,56 @@ import { sanity } from '@/lib/sanity'
  *  Configuration OpenRouter
  *  ────────────────────────────────────────────────────────────*/
 const openai = new OpenAI({
-  apiKey: process.env.OPENROUTER_API_KEY!,                // clé or-xxxx
+  apiKey: process.env.OPENROUTER_API_KEY!, // Clé API OpenRouter (or-xxxx)
   baseURL: 'https://openrouter.ai/api/v1',
   defaultHeaders: {
     'HTTP-Referer': process.env.NEXT_PUBLIC_BASE_URL ?? 'http://localhost:3000',
     'X-Title': 'Germaine Nails Assistant',
   },
 })
+
+/* ──────────────────────────────────────────────────────────────
+ *  Fonction utilitaire : Appel modèle avec fallback
+ *  ────────────────────────────────────────────────────────────*/
+async function generateCompletion(prompt: string) {
+  const models = [
+    'mistralai/mistral-7b-instruct:free',
+    'deepseek/deepseek-v3-base:free',
+  ]
+
+  for (const model of models) {
+    try {
+      console.log(`🔄 Tentative avec le modèle : ${model}`)
+      const completion = await openai.chat.completions.create({
+        model,
+        temperature: 0.7,
+        messages: [
+          {
+            role: 'system',
+            content:
+              `Tu es l'assistant beauté du salon Germaine Nails. ` +
+              `Sois précis, chaleureux et professionnel.`
+          },
+          { role: 'user', content: prompt }
+        ],
+      })
+
+      const reply =
+        completion.choices[0]?.message?.content ??
+        'Désolé, je n’ai pas de réponse pour le moment.'
+
+      return { reply, model }
+    } catch (err: any) {
+      console.error(`❌ Erreur avec ${model} :`, err.message)
+      continue // Passe au modèle suivant
+    }
+  }
+
+  return {
+    reply: 'Désolé, notre assistant est indisponible pour le moment. Merci de réessayer plus tard.',
+    model: 'aucun',
+  }
+}
 
 /* ──────────────────────────────────────────────────────────────
  *  POST /api/chat
@@ -27,44 +69,22 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Le message est vide.' }, { status: 400 })
     }
 
-    /* ── 2. Récupération des données Sanity en parallèle ─────── */
+    /* ── 2. Récupération des données Sanity ─────────────────── */
     const [
-      coordonnees, // 0
-      prestations, // 1
-      articles,    // 2
-      formations,  // 3
-      blogs,       // 4
-      faq,         // 5
-      temoignages, // 6
-      partenaires  // 7
+      coordonnees, prestations, articles, formations,
+      blogs, faq, temoignages, partenaires
     ]: any[] = await Promise.all([
-      sanity.fetch(`*[_type == "coordonnees"][0]{
-        nom, email, telephone, adresse, ville, pays,
-        reseaux { facebook, instagram, whatsapp }
-      }`),
-
-      sanity.fetch(`*[_type == "prestation"]{
-        titre, description
-      }`),
-
-      sanity.fetch(`*[_type == "article"]{
-        nom, description, prix, categorie
-      }`),
-
-      sanity.fetch(`*[_type == "formation"]{
-        formation, paiement
-      }`),
-
-      sanity.fetch(`*[_type == "blog"]{
-        titre, categorie, date
-      }`),
-
-      sanity.fetch(`*[_type == "faq"]{ question, reponse }`),
-      sanity.fetch(`*[_type == "temoignage"]{ auteur, contenu }`),
-      sanity.fetch(`*[_type == "partenaire"]{ nom, siteWeb }`)
+      sanity.fetch(`*[_type == "coordonnees"][0]{nom,email,telephone,adresse,ville,pays,reseaux{facebook,instagram,whatsapp}}`),
+      sanity.fetch(`*[_type == "prestation"]{titre,description}`),
+      sanity.fetch(`*[_type == "article"]{nom,description,prix,categorie}`),
+      sanity.fetch(`*[_type == "formation"]{formation,paiement}`),
+      sanity.fetch(`*[_type == "blog"]{titre,categorie,date}`),
+      sanity.fetch(`*[_type == "faq"]{question,reponse}`),
+      sanity.fetch(`*[_type == "temoignage"]{auteur,contenu}`),
+      sanity.fetch(`*[_type == "partenaire"]{nom,siteWeb}`)
     ])
 
-    /* ── 3. Construction du prompt contextuel ────────────────── */
+    /* ── 3. Construction du prompt ───────────────────────────── */
     const coordText = `
 ### Coordonnées
 - Salon : ${coordonnees.nom}
@@ -109,27 +129,10 @@ ${partenaires.map((p: any) => `- ${p.nom} : ${p.siteWeb}`).join('\n')}
 - Si l’info manque, propose de vérifier et de revenir vers le client
 `.trim()
 
-    /* ── 4. Appel au modèle OpenRouter ───────────────────────── */
-    const completion = await openai.chat.completions.create({
-      model: 'openrouter/cypher-alpha:free',
-      temperature: 0.7,
-      messages: [
-        {
-          role: 'system',
-          content:
-            `Tu es l'assistant beauté du salon Germaine Nails. ` +
-            `Sois précis, chaleureux et professionnel.`
-        },
-        { role: 'user', content: prompt }
-      ]
-    })
+    /* ── 4. Génération avec fallback ────────────────────────── */
+    const { reply, model } = await generateCompletion(prompt)
 
-    const reply =
-      completion.choices[0]?.message?.content ??
-      'Désolé, je n’ai pas de réponse pour le moment.'
-
-    /* ── 5. Réponse HTTP ─────────────────────────────────────── */
-    return NextResponse.json({ reply })
+    return NextResponse.json({ reply, model })
   } catch (err: any) {
     console.error('OpenRouter Chat Error:', err)
     return NextResponse.json(
