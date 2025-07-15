@@ -9,7 +9,8 @@ const isPublicRoute = createRouteMatcher([
   '/favicon.ico',
   '/manifest.json',
   '/robots.txt',
-  '/sitemap.xml',
+  '/sitemap(.*)',
+  '/(.*).xml',
   '/ads.txt',
 
   // Pages publiques
