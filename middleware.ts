@@ -31,6 +31,7 @@ const isPublicRoute = createRouteMatcher([
   '/conditions-vente(.*)',
 
   // API publiques utilisées dans ces pages
+  '/api/galerie',
   '/api/galleryImages',
   '/api/galleryVideos',
   '/api/articles',
@@ -38,7 +39,12 @@ const isPublicRoute = createRouteMatcher([
   '/api/prestations',
   '/api/messagesBottom',
   '/api/chat',
+  '/api/contact',
   '/api/formation',
+  '/api/partenariat',
+  '/api/sanity-carousel',
+  '/api/coordonnees',
+  
   
   
 ])
