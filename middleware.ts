@@ -38,6 +38,8 @@ const isPublicRoute = createRouteMatcher([
   '/api/prestations',
   '/api/messagesBottom',
   '/api/chat',
+  '/api/formation',
+  
   
 ])
 

@@ -55,7 +55,7 @@ export default function Navbar() {
         <Link href="/" className="navbar-brand d-flex align-items-center gap-2">
           <Image
             src="/images/logo-site.png"
-            alt="Germaine Nails"
+            alt="Logo"
             width={80}
             height={80}
             priority
