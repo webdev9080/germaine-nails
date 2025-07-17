@@ -1,3 +1,4 @@
+
 {
   "settingsTitle": "Paramètres du compte",
   "profileTitle": "Profil utilisateur",
@@ -6,6 +7,10 @@
   "darkModeDescription": "Activez le mode sombre ou clair.",
   "languageTitle": "Langue",
   "languageDescription": "Choisissez votre langue préférée.",
+  "loading": "Chargement...",
+  "notLoggedIn": "Vous n'êtes pas connecté.",
+  "signIn": "Se connecter",
+  "role": "Rôle",
 
 
 

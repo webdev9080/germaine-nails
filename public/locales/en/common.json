@@ -1,3 +1,5 @@
+
+
 {
   "settingsTitle": "Account Settings",
   "profileTitle": "User Profile",
@@ -6,6 +8,10 @@
   "darkModeDescription": "Enable dark or light mode.",
   "languageTitle": "Language",
   "languageDescription": "Choose your preferred language.",
+  "loading": "Loading...",
+  "notLoggedIn": "You are not logged in.",
+  "signIn": "Sign in",
+  "role": "Role",
 
 
 
