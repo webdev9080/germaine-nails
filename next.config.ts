@@ -8,10 +8,10 @@ const withPWA = require("next-pwa")({
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
-  compress: true, // ✅ Active la compression Brotli/Gzip
+  compress: true, // ✅ Compression Brotli/Gzip activée
 
   images: {
-    formats: ["image/avif", "image/webp"], // ✅ Images optimisées
+    formats: ["image/avif", "image/webp"], // ✅ Optimisation des images
     remotePatterns: [
       {
         protocol: "https",
@@ -19,11 +19,11 @@ const nextConfig: NextConfig = {
         pathname: "/images/**",
       },
     ],
-    minimumCacheTTL: 60 * 60 * 24 * 30, // 30 jours (fallback si pas de cache headers)
+    minimumCacheTTL: 60 * 60 * 24 * 30, // ✅ Cache fallback (30 jours)
   },
 
   eslint: {
-    ignoreDuringBuilds: true,
+    ignoreDuringBuilds: true, // ✅ Empêche l'échec du build à cause des erreurs ESLint
   },
 
   async headers() {
@@ -48,7 +48,7 @@ const nextConfig: NextConfig = {
           },
         ],
       },
-      // ✅ Cache modéré pour les pages ISR
+      // ✅ Cache modéré pour les pages ISR (1 heure)
       {
         source: "/(blog|shop)(.*)",
         headers: [
@@ -58,7 +58,7 @@ const nextConfig: NextConfig = {
           },
         ],
       },
-      // ✅ Cache faible pour API (1 min)
+      // ✅ Cache faible pour les API (1 minute)
       {
         source: "/api/(.*)",
         headers: [
@@ -77,16 +77,6 @@ const nextConfig: NextConfig = {
             value: "public, max-age=86400, stale-while-revalidate=59",
           },
         ],
-      },
-    ];
-  },
-
-  async redirects() {
-    return [
-      {
-        source: "/index",
-        destination: "/",
-        permanent: true,
       },
     ];
   },
