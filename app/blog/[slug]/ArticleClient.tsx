@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { PortableText } from '@portabletext/react'
 import Spinner from '@/components/Spinner'
 import CommentForm from '@/components/CommentForm'
-
+import AdBanner from "@/components/ads/AdBanner";
 
 type Commentaire = {
   _id: string
@@ -121,6 +121,8 @@ export default function ArticleClient({
               }}
             />
           </article>
+          
+          <AdBanner adSlot="4478125382" />
 
           {/* Formulaire commentaire */}
           
