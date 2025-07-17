@@ -1,10 +1,12 @@
 // app/prestations/manucure/page.tsx ✅ NE PAS ajouter "use client"
 
+
 import Link from 'next/link'
 import SanityCarousel from '@/components/SanityCarousel'
 import TemoignagesSection from '@/components/TemoignagesSection'
 import FaqSection from '@/components/FaqSection'
 import ManucureClient from './ManucureClient'
+import AdBanner from "@/components/ads/AdBanner";
 
 import { generateMetadata } from '@/utils/metadata'
 
@@ -40,6 +42,7 @@ export default function ManucurePage() {
           </Link>
         </div>
       </section>
+      <AdBanner adSlot="4478125382" />
     </main>
   )
 }

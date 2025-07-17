@@ -14,12 +14,13 @@ export default function AdBanner({
   style = { display: "block", margin: "2rem auto" },
 }: AdBannerProps) {
   useEffect(() => {
-    try {
-      if (window.adsbygoogle && typeof window !== "undefined") {
+    if (typeof window !== "undefined") {
+      try {
+        // @ts-ignore
         (window.adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (err) {
+        console.error("AdSense error", err);
       }
-    } catch (err) {
-      console.error("AdSense error", err);
     }
   }, []);
 

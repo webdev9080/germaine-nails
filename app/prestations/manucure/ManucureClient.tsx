@@ -1,4 +1,5 @@
 // app/prestations/manucure/ManucureClient.tsx
+
 "use client"
 
 import { useTranslation } from "react-i18next"

@@ -67,6 +67,7 @@ export default function PolitiqueConfidentialitePage() {
             Dernière mise à jour : <strong>28 juin 2025</strong>
           </p>
         </div>
+        
       </div>
       
     </main>

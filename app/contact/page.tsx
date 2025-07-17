@@ -2,6 +2,7 @@
 
 import { generateMetadata } from "@/utils/metadata";
 import ContactPage from "./ContactPage";
+import AdBanner from "@/components/ads/AdBanner";
 
 export const metadata = generateMetadata({
   title: "Contact - Germaine Nails",
@@ -11,4 +12,5 @@ export const metadata = generateMetadata({
 
 export default function Page() {
   return <ContactPage />;
+  <AdBanner adSlot="4478125382" />
 }
