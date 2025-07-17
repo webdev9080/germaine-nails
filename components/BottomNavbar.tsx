@@ -79,6 +79,7 @@ const BottomNavbar = () => {
 
           return (
             <Link
+              prefetch={key !== 'messages'}
               key={href}
               href={href}
               className={`position-relative text-decoration-none d-flex flex-column align-items-center small ${
