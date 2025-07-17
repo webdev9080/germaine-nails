@@ -1,5 +1,12 @@
 'use client'
 
+/*<Script
+          id="adsbygoogle-init"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8324514138250709"
+          crossOrigin="anonymous"
+          strategy="lazyOnload"
+        />*/
+
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'

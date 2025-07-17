@@ -1,3 +1,5 @@
+
+
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
 import Script from "next/script";
@@ -38,6 +40,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <meta name="robots" content="index, follow" />
         <meta name="google-adsense-account" content="ca-pub-8324514138250709" />
+        
         <meta name="google-site-verification" content="64KK1ftpyB_dhS9x4-3DWtKKBCOR4QM6FQqKirgbqt4" />
         <link rel="manifest" href="/manifest.json" />
         <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
@@ -45,12 +48,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="theme-color" content="#d63384" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <Script
-          id="adsbygoogle-init"
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8324514138250709"
-          crossOrigin="anonymous"
-          strategy="lazyOnload"
-        />
+        <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8324514138250709"
+     crossorigin="anonymous"
+     strategy="lazyOnload" />
+     
       </head>
 
       <body className={`${geistSans.className} d-flex flex-column min-vh-100`}>
