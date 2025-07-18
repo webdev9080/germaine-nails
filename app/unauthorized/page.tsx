@@ -6,7 +6,7 @@ export const generateMetadata = () =>
     title: 'Accès refusé | Germaine Nails',
     description: 'Cette page est réservée aux administrateurs.',
     path: '/unauthorized',
-    
+    noIndex: false,
   });
 
 export default function UnauthorizedPage() {

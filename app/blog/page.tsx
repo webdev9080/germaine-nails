@@ -7,6 +7,8 @@ export const metadata = generateMetadata({
   title: "Blog - Germaine Nails",
   description: "Consultez nos articles sur les soins de beauté, astuces, conseils et nouveautés.",
   path: "/blog",
+  noIndex: false,
+  
 })
 
 export default async function BlogPage() {

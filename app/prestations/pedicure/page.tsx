@@ -9,6 +9,7 @@ export const metadata = generateMetadata({
   title: "Pédicure - Germaine Nails",
   description: "Offrez à vos pieds les meilleurs soins à Lomé avec notre service de pédicure professionnel.",
   path: "/prestations/pedicure",
+  noIndex: false,
 });
 
 export default function PedicurePage() {

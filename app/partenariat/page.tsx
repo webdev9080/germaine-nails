@@ -9,6 +9,7 @@ export const metadata = generateMetadata({
   title: "Partenariat - Germaine Nails",
   description: "Rejoignez Germaine Nails comme partenaire et développez votre visibilité et vos ventes.",
   path: "/partenariat",
+  noIndex: false,
 });
 
 export default function PartenariatPage() {

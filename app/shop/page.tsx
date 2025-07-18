@@ -7,6 +7,7 @@ export const metadata = generateMetadata({
   title: "Boutique - Germaine Nails",
   description: "Découvrez les produits en vente chez Germaine Nails : vernis, soins, accessoires et plus.",
   path: "/shop",
+  noIndex: false,
 });
 
 export default async function ShopPage() {

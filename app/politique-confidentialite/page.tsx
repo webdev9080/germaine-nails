@@ -7,6 +7,7 @@ export const metadata = generateMetadata({
   title: "Politique de confidentialité - Germaine Nails",
   description: "Découvrez notre politique de confidentialité concernant la collecte et l'utilisation de vos données.",
   path: "/politique-confidentialite",
+  noIndex: false,
 });
 
 export default function PolitiqueConfidentialitePage() {

@@ -14,6 +14,7 @@ export const metadata = generateMetadata({
   title: "Manucure - Germaine Nails",
   description: "Découvrez nos soins de manucure à Lomé pour des ongles éclatants et soignés.",
   path: "/prestations/manucure",
+  noIndex: false,
 });
   
 export default function ManucurePage() {

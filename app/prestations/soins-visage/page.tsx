@@ -9,6 +9,7 @@ export const metadata = generateMetadata({
   title: "Soins du visage - Germaine Nails",
   description: "Profitez de soins du visage professionnels à Lomé pour une peau éclatante et en bonne santé.",
   path: "/prestations/soins-visage",
+  noIndex: false,
 });
 
 export default function SoinsVisagePage() {
