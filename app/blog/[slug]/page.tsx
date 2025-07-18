@@ -2,6 +2,9 @@ import { sanity } from "@/lib/sanity";
 import ArticleClient from "./ArticleClient";
 import { generateMetadata as seoMetadata } from "@/utils/metadata";
 
+// ✅ Revalidation ISR toutes les 60s
+export const revalidate = 60;
+
 // ✅ Page Article dynamique
 export default async function ArticlePage({ params }: any) {
   const slug = params.slug;
@@ -41,7 +44,6 @@ export async function generateMetadata({ params }: any) {
     { slug: params.slug }
   );
 
-  // ✅ Extraire les 150 premiers caractères du contenu (version texte brut)
   const plainText = Array.isArray(post?.contenu)
     ? post.contenu
         .map((block: any) =>
