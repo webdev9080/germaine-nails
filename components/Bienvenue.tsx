@@ -41,7 +41,7 @@ export default function Bienvenue() {
           const greetingText = getGreeting()
           setGreeting(greetingText)
 
-          toast.success(`${greetingText}, ${data.nom ?? 'Utilisateur'} 👋`, {
+          toast.success(`${greetingText}, ${data.nom ?? 'Admin'} 👋`, {
             duration: 6000,
           })
 
@@ -62,7 +62,7 @@ export default function Bienvenue() {
     <>
       {showAnimation && user && (
         <div className={styles.bienvenueBox}>
-          {greeting}, <strong>{user.nom ?? 'Utilisateur'}</strong> !
+          {greeting}, <strong>{user.nom ?? 'Admin'}</strong> !
         </div>
       )}
     </>
