@@ -3,6 +3,9 @@ import { getBlogs } from '@/lib/getBlogs'
 import BlogClient from './BlogClient'
 import { generateMetadata } from '@/utils/metadata' // <-- utilise ta fonction
 
+// ✅ Revalidation ISR toutes les 60s
+export const revalidate = 60;
+
 export const metadata = generateMetadata({
   title: "Blog - Germaine Nails",
   description: "Consultez nos articles sur les soins de beauté, astuces, conseils et nouveautés.",

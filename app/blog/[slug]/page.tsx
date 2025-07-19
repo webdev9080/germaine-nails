@@ -1,13 +1,14 @@
-import { sanity } from "@/lib/sanity";
-import ArticleClient from "./ArticleClient";
-import { generateMetadata as seoMetadata } from "@/utils/metadata";
+import { sanity } from '@/lib/sanity'
+import ArticleClient from './ArticleClient'
+import { generateMetadata as seoMetadata } from "@/utils/metadata"
 
 // ✅ Revalidation ISR toutes les 60s
 export const revalidate = 60;
 
-// ✅ Page Article dynamique
+// ✅ On désactive les erreurs de typage temporaires ici
+// car Next.js a un bug de type dans `.next/types`
 export default async function ArticlePage({ params }: any) {
-  const slug = params.slug;
+  const slug = params.slug
 
   const post = await sanity.fetch(
     `*[_type == "blog" && slug.current == $slug][0]{
@@ -16,21 +17,21 @@ export default async function ArticlePage({ params }: any) {
       slug,
       date,
       auteur,
-      "image": imagePrincipale.asset->url,
+      imagePrincipale{asset->{url}},
       contenu
     }`,
     { slug }
-  );
+  )
 
-  if (!post) return null;
+  if (!post) return null
 
-  return <ArticleClient slug={slug} post={post} />;
+  return <ArticleClient slug={slug} post={post} />
 }
 
-// ✅ Génération des slugs statiques (SSG)
+// ✅ Slugs dynamiques
 export async function generateStaticParams() {
-  const articles = await sanity.fetch(`*[_type == "blog"]{ "slug": slug.current }`);
-  return articles.map((a: any) => ({ slug: a.slug }));
+  const articles = await sanity.fetch(`*[_type == "blog"]{ "slug": slug.current }`)
+  return articles.map((a: any) => ({ slug: a.slug }))
 }
 
 // ✅ SEO dynamique avec description extraite du contenu
@@ -50,7 +51,7 @@ export async function generateMetadata({ params }: any) {
           block.children?.map((child: any) => child.text).join(" ")
         )
         .join(" ")
-    : "";
+    : "";""
 
   const shortDescription = plainText
     ? plainText.substring(0, 150) + (plainText.length > 150 ? "..." : "")
