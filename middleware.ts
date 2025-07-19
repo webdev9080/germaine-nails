@@ -44,6 +44,7 @@ const isPublicRoute = createRouteMatcher([
   '/api/partenariat',
   '/api/sanity-carousel',
   '/api/coordonnees',
+  '/api/me',
   
   
   
