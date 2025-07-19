@@ -9,7 +9,7 @@ interface Message {
   name: string;
   email: string;
   message: string;
-  createdAt: string;
+  _createdAt: string;
 }
 
 export default function ContactMessages() {
@@ -61,7 +61,7 @@ export default function ContactMessages() {
               <h6 className="text-center card-subtitle text-muted">{msg.email}</h6>
               <p className="py-1 card-text mt-2 text-center">{msg.message}</p>
               <p className="text-end text-muted small">
-                {new Date(msg.createdAt).toLocaleString()}
+                {new Date(msg._createdAt).toLocaleString()}
               </p>
               <div className="text-end">
                 <button

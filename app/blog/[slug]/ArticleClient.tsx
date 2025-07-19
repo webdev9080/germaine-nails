@@ -5,7 +5,6 @@ import Image from 'next/image'
 import { PortableText } from '@portabletext/react'
 import Spinner from '@/components/Spinner'
 import CommentForm from '@/components/CommentForm'
-import AdBanner from "@/components/ads/AdBanner";
 
 type Commentaire = {
   _id: string
@@ -44,33 +43,13 @@ export default function ArticleClient({
         setLoading(false)
       }
     }
-
     fetchCommentaires()
   }, [slug])
-
-  {/*const handleSubmit = async (formData: FormData) => {
-    const nom = formData.get('nom')?.toString()
-    const message = formData.get('message')?.toString()
-
-    if (!nom || !message) return
-
-    await fetch('/api/commentaires', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ articleId: post._id, nom, message }),
-    })
-
-    // Recharger les commentaires après soumission
-    const res = await fetch(`/api/commentaires/${slug}`)
-    const data = await res.json()
-    setCommentaires(data)
-  }*/}
 
   const formattedDate = new Date(post.date).toLocaleDateString('fr-FR')
 
   return (
     <div className="container py-5 position-relative">
-
       <div className="row justify-content-center">
         <div className="col-lg-10">
 
@@ -79,7 +58,6 @@ export default function ArticleClient({
             Publié le {formattedDate} par <strong>{post.auteur || 'Germaine Nails'}</strong>
           </p>
 
-          {/* Image principale */}
           {post.imagePrincipale?.asset?.url && (
             <div className="mb-4">
               <Image
@@ -93,8 +71,6 @@ export default function ArticleClient({
             </div>
           )}
 
-          {/* Contenu PortableText */}
-          
           <article className="mb-5 fs-5 lh-lg">
             <PortableText
               value={post.contenu}
@@ -121,28 +97,22 @@ export default function ArticleClient({
               }}
             />
           </article>
-          
-          <AdBanner adSlot="4478125382" />
 
-          {/* Formulaire commentaire */}
-          
-<div className="card border-0 shadow-sm mb-5">
-  <div className="card-body">
-    <h4 className="card-title mb-3">Laisser un commentaire</h4>
-    <CommentForm
-      articleId={post._id}
-      onCommentPosted={async () => {
-        const res = await fetch(`/api/commentaires/${slug}`)
-        
-        const data = await res.json()
-        setCommentaires(data)
-      }}
-    />
-  </div>
-</div>
+          <div className="card border-0 shadow-sm mb-5">
+            <div className="card-body">
+              <h4 className="card-title mb-3">Laisser un commentaire</h4>
+              <CommentForm
+                articleId={post._id}
+                onCommentPosted={async () => {
+                  const res = await fetch(`/api/commentaires/${slug}`)
+                  const data = await res.json()
+                  setCommentaires(data)
+                }}
+              />
+            </div>
+          </div>
 
-          
-          
+
         </div>
       </div>
     </div>
