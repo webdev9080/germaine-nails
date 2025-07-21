@@ -4,6 +4,8 @@ Allow: /
 Disallow: /sign-in
 Disallow: /sign-up
 Disallow: /dashboard
+Disallow: /settings
+Disallow: /unauthorized
 
 # Host
 Host: https://germaine-nails-tg.vercel.app
