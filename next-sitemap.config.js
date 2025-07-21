@@ -10,7 +10,7 @@ const sanity = createClient({
 })
 
 module.exports = {
-  siteUrl: 'https://germaine-nails.dedyn.io',
+  siteUrl: 'https://germaine-nails-tg.vercel.app',
   generateRobotsTxt: true,
   sitemapSize: 5000,
   changefreq: 'weekly',
@@ -20,7 +20,6 @@ module.exports = {
     '/sign-in',
     '/sign-up',
     '/dashboard',
-    '/settings',
   ],
 
   robotsTxtOptions: {
@@ -32,7 +31,6 @@ module.exports = {
           '/sign-in',
           '/sign-up',
           '/dashboard',
-          '/settings',
         ],
       },
     ],

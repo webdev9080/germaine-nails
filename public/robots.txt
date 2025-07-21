@@ -4,10 +4,9 @@ Allow: /
 Disallow: /sign-in
 Disallow: /sign-up
 Disallow: /dashboard
-Disallow: /settings
 
 # Host
-Host: https://germaine-nails.dedyn.io
+Host: https://germaine-nails-tg.vercel.app
 
 # Sitemaps
-Sitemap: https://germaine-nails.dedyn.io/sitemap.xml
+Sitemap: https://germaine-nails-tg.vercel.app/sitemap.xml

@@ -14,7 +14,7 @@ export function generateMetadata({
   path = "/",
   noIndex = false,
 }: MetaOptions): Metadata {
-  const baseUrl = "https://germaine-nails.dedyn.io";
+  const baseUrl = "https://germaine-nails-tg.vercel.app";
   const defaultImage = `${baseUrl}/images/og-default.jpg`;
 
   return {
