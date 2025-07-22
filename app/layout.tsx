@@ -38,13 +38,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="fr">
       <head>
-<Script async src="https://www.googletagmanager.com/gtag/js?id=G-K3M5S2G8F7" />
 <Script
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-K3M5S2G8F7'); />
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-K3M5S2G8F7"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-K3M5S2G8F7');
+          `}
+        </Script>
   
         <meta name="robots" content="index, follow" />
         <meta name="google-adsense-account" content="ca-pub-8324514138250709" />
